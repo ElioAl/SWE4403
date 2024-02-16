@@ -17,7 +17,7 @@ public class Connection {
 
             inputStream.close();
 
-            Class.forName(dbConnectionProps.getProperty("driver-class-name")).newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             dbConnection = (Connection) DriverManager.getConnection(dbConnectionProps.getProperty("url"),
                     dbConnectionProps.getProperty("username"),
@@ -66,5 +66,10 @@ public class Connection {
         System.out.println("SQLException: " + e.getMessage());
         System.out.println("SQLState: " + e.getSQLState());
         System.out.println("VendorError: " + e.getErrorCode());
+    }
+
+    public static void main(String[] args){
+        Connection dbConnection = Connect();
+        System.out.println("Connected");
     }
 }
