@@ -12,7 +12,16 @@ public class PCSApplication {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(PCSApplication.class, args);
+		try {
+			System.out.println("Booting up the PCS system...");
+			SpringApplication.run(PCSApplication.class, args);
+		}
+		catch(Exception e) {
+			System.out.println("Something went wrong: " + e.getMessage() + "/nStack Trace: ");
+			e.printStackTrace();
+		}
+		System.out.println("PCS System online");
+
 	}
 
 }
