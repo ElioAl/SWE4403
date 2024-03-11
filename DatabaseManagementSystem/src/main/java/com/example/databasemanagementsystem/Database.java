@@ -1,7 +1,10 @@
 package com.example.databasemanagementsystem;
 
-public interface Database {
-    public void add_user(String username, String password);
+import java.util.ArrayList;
 
-    public void delete_user(String username, String password);
+public interface Database {
+    void add_user(String username, String password);
+
+    void delete_user(String username, String password);
+    ArrayList<String> get_User(int user_ID);
 }

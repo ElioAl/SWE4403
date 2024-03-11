@@ -4,9 +4,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
-public class Connection {
+public class DB_Connection {
     public static Connection Connect(){
         Connection dbConnection = null;
         Properties dbConnectionProps = new Properties();
@@ -17,11 +20,11 @@ public class Connection {
 
             inputStream.close();
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url=dbConnectionProps.getProperty("url");
+            String username = dbConnectionProps.getProperty("username");
+            String password = dbConnectionProps.getProperty("password");
 
-            dbConnection = (Connection) DriverManager.getConnection(dbConnectionProps.getProperty("url"),
-                    dbConnectionProps.getProperty("username"),
-                    dbConnectionProps.getProperty("password"));
+            dbConnection=DriverManager.getConnection(url, username, password);
         }
         catch (SQLException e) {
             getSQLException(e);
@@ -43,12 +46,12 @@ public class Connection {
         }
 
         if(dbConnection != null){
-            /*try{
-                //dbConnection.;
+            try{
+                dbConnection.close();
             }
             catch(SQLException e) {
                 getSQLException(e);
-            }*/
+            }
         }
     }
 
@@ -69,7 +72,18 @@ public class Connection {
     }
 
     public static void main(String[] args){
-        Connection dbConnection = Connect();
+        //Connection dbConnection = Connect();
         System.out.println("Connected");
+        DBAccess dbAccess = new DBAccess();
+//        dbAccess.add_user("TEst", "Testing");
+//        ArrayList<String> res = dbAccess.get_User(2);
+//        for (String re : res) {
+//            System.out.println(re);
+//        }
+//        dbAccess.delete_user("TEst", "Testing");
+//        ArrayList<String> resu = dbAccess.get_User(2);
+//        for (String re : resu) {
+//            System.out.println(re);
+//        }
     }
 }
