@@ -1,6 +1,6 @@
 package unb.microservices.orderservice;
 
-public class PlaceOrderCommand extends Command{
+public class UpdateOrderCommand extends Command{
     @Override
     public void execute() {
 
