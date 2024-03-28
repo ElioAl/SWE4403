@@ -4,13 +4,18 @@ import java.util.ArrayList;
 
 public class CancelOrderCommand extends Command{
     @Override
-    public void execute(Order e) {
-        temp = Command.getOrders();
-        Command.setCurrentOrders(new ArrayList<Order>());
+    public void setItem(String item) {
+
+    }
+
+    @Override
+    public void execute() {
+        Command.setCurrentOrder(new Order());
     }
 
     @Override
     public void undo() {
-        Command.setCurrentOrders(temp);
+        Command placeOrderCommand = new PlaceOrderCommand();
+        placeOrderCommand.execute();
     }
 }

@@ -1,29 +1,35 @@
 package unb.microservices.orderservice;
 
+import java.util.ArrayList;
+
 public class Order {
-    private String itemId;
-    private int quantity;
+    private String orderId;
+    private ArrayList<String> items;
     private String date;
 
-    public Order(String id, int quan, String date){
-        itemId = id;
-        quantity = quan;
-        this.date = date;
+    public Order(String id, ArrayList<String> itm, String dt){
+        orderId = id;
+        items = itm;
+        date = dt;
     }
 
-    public String getItemId() {
-        return itemId;
+    public Order() {
+
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    public ArrayList<String> getItems() {
+        return items;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setItems(ArrayList<String> items) {
+        this.items = items;
     }
 }
