@@ -1,5 +1,7 @@
 package com.example.databasemanagementsystem;
 
+import SharedDataTypes.Product;
+
 import java.util.ArrayList;
 
 public interface Database {
@@ -13,4 +15,8 @@ public interface Database {
     void get_product(int product_ID);
 
     void setProductQuantity(int product_ID, int quantity);
+
+    void placeOrder(int order_ID, ArrayList<Product> order);
+
+    boolean cancelOrder(int order_ID);
 }

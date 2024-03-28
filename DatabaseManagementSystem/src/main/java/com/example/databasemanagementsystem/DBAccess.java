@@ -1,5 +1,7 @@
 package com.example.databasemanagementsystem;
 
+import SharedDataTypes.Product;
+
 import java.util.ArrayList;
 
 public class DBAccess implements Database{
@@ -32,5 +34,19 @@ public class DBAccess implements Database{
     @Override
     public void setProductQuantity(int product_ID, int quantity) {
         product_DB.setProductQuantity(product_ID ,quantity);
+    }
+
+    @Override
+    public void placeOrder(int user_ID, ArrayList<Product> order) {
+        int order_ID = order_DB.addOrder(user_ID);
+        for(Product x: order){
+            order_DB.addToOrder(order_ID, user_ID, x);
+        }
+    }
+
+    @Override
+    public boolean cancelOrder(int order_ID){
+        String toCheck = order_tracking_DB.getOrder(order_ID);
+        return toCheck.equals("NotPlaced") || toCheck.equals("Processing");
     }
 }
