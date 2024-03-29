@@ -1,6 +1,6 @@
 package unb.microservices.PCS;
 
-public class MeatProduct implements BaseProduct {
+public class MeatProduct implements Product {
     private String itemName;
     private double pricePerKG;
     private double price;
@@ -8,12 +8,12 @@ public class MeatProduct implements BaseProduct {
 
 
     @Override
-    public void createProduct(BaseProduct purchasedProduct) {
+    public void createProduct(Product purchasedProduct) {
         // send new object to db. all good EA
     }
 
     @Override
-    public BaseProduct readProduct(int ID) {
+    public Product readProduct(int ID) {
         // request product from ID on the DB, returns a. All good EA
         return null;
     }
@@ -25,7 +25,7 @@ public class MeatProduct implements BaseProduct {
     }
 
     @Override
-    public BaseProduct deleteProduct(int ID) {
+    public Product deleteProduct(int ID) {
         //delete the product and return it. all good EA
         return null;
     }

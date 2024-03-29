@@ -1,5 +1,5 @@
 package unb.microservices.PCS;
 
 public interface ProductFactory {
-    public BaseProduct createTransport();
+    public Product createTransport();
 }

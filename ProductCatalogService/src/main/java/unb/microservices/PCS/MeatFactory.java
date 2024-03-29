@@ -2,7 +2,7 @@ package unb.microservices.PCS;
 
 public class MeatFactory implements ProductFactory{
     @Override
-    public BaseProduct createTransport() {
+    public Product createTransport() {
         return new MeatProduct();
     }
 }

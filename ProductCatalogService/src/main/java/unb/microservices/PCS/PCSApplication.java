@@ -21,7 +21,8 @@ public class PCSApplication {
 			e.printStackTrace();
 		}
 		System.out.println("PCS System online");
-
+		Product p = new DairyProduct();
+		p.createProduct(p);
 	}
 
 }
