@@ -15,10 +15,11 @@ public class product_DB {
         CallableStatement dbStatement = null;
 
         try{
-            dbStatement = dbConnection.prepareCall("{CALL add_product(?,?,?)}");
+            dbStatement = dbConnection.prepareCall("{CALL add_product(?,?,?,?)}");
             dbStatement.setString("product_name", product_name);
             dbStatement.setDouble("product_price", product_price);
             dbStatement.setInt("product_quanity", quantity);
+            dbStatement.setString("product_category", category);
             dbStatement.executeQuery();
         }
         catch(SQLException e){
@@ -85,11 +86,12 @@ public class product_DB {
         CallableStatement dbStatement = null;
 
         try{
-            dbStatement = dbConnection.prepareCall("{CALL updateProduct(?,?,?,?)}");
+            dbStatement = dbConnection.prepareCall("{CALL updateProduct(?,?,?,?,?)}");
             dbStatement.setInt("product_ID", toUpdate.getProduct_ID());
             dbStatement.setString("product_name", toUpdate.getName());
             dbStatement.setDouble("product_cost", toUpdate.getCost());
             dbStatement.setInt("product_quantity", toUpdate.getQuantity());
+            dbStatement.setString("product_category", toUpdate.getCategory());
             dbStatement.executeQuery();
         } catch(SQLException e){
             DB_Connection.getSQLException(e);
