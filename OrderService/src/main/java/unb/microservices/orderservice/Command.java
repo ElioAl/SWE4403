@@ -1,11 +1,19 @@
 package unb.microservices.orderservice;
 
-public abstract class Command {
-    public Order currentOrder;
+import java.util.ArrayList;
 
-    public void setCurrentOrder(Order currentOrder) {
-        this.currentOrder = currentOrder;
+public abstract class Command {
+    private static Order order;
+
+    public static void setCurrentOrder(Order currentOrder) {
+        order = currentOrder;
     }
+
+    public static Order getOrder() {
+        return order;
+    }
+
+    public abstract void setItem(String item);
 
     public abstract void execute();
     public abstract void undo();

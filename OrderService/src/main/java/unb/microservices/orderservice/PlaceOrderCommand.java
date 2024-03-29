@@ -2,12 +2,18 @@ package unb.microservices.orderservice;
 
 public class PlaceOrderCommand extends Command{
     @Override
-    public void execute() {
+    public void setItem(String item) {
 
     }
 
     @Override
-    public void undo() {
+    public void execute() {
+        //transfer to payment
+    }
 
+    @Override
+    public void undo() {
+        Command cancelCommand = new CancelOrderCommand();
+        cancelCommand.execute();
     }
 }
