@@ -3,14 +3,16 @@ package unb.microservices.orderservice;
 import java.util.ArrayList;
 
 public class CancelOrderCommand extends Command{
+
     @Override
-    public void setItem(String item) {
+    public void setItem(Product item) {
 
     }
 
     @Override
     public void execute() {
         Command.setCurrentOrder(new Order());
+        //add database method
     }
 
     @Override

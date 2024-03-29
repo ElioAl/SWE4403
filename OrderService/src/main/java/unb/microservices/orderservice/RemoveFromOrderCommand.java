@@ -1,7 +1,7 @@
 package unb.microservices.orderservice;
 
 public class RemoveFromOrderCommand extends Command{
-    private String item;
+    private Product item;
     @Override
     public void execute() {
         Command.getOrder().getItems().remove(item);
@@ -12,7 +12,7 @@ public class RemoveFromOrderCommand extends Command{
         Command.getOrder().getItems().add(item);
     }
 
-    public void setItem(String item) {
+    public void setItem(Product item) {
         this.item = item;
     }
 }

@@ -13,7 +13,7 @@ public abstract class Command {
         return order;
     }
 
-    public abstract void setItem(String item);
+    public abstract void setItem(Product item);
 
     public abstract void execute();
     public abstract void undo();

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 public class Order {
     private String userId;
-    private ArrayList<String> items;
-    private String date;
+    private ArrayList<Product> items;
 
-    public Order(String id, ArrayList<String> itm, String dt){
+    public Order(String id, ArrayList<Product> itm){
         userId = id;
         items = itm;
-        date = dt;
     }
 
     public Order() {
@@ -21,7 +19,7 @@ public class Order {
         return userId;
     }
 
-    public ArrayList<String> getItems() {
+    public ArrayList<Product> getItems() {
         return items;
     }
 
@@ -29,7 +27,7 @@ public class Order {
         this.userId = userId;
     }
 
-    public void setItems(ArrayList<String> items) {
+    public void setItems(ArrayList<Product> items) {
         this.items = items;
     }
 }
