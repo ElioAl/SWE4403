@@ -8,7 +8,7 @@ public class PlaceOrderCommand extends Command{
 
     @Override
     public void execute() {
-        //transfer to payement
+        //transfer to payment
     }
 
     @Override

@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4bafa7a8-280a-47da-b29c-568fe0e43b7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/AddOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/AddToOrderCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/CancelOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/CancelOrderCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/RemoveOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/RemoveFromOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/RemoveFromOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/RemoveFromOrderCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,25 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/promi/OneDrive/Documents/GitHub/lab09-A-pononokp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Issue.Navigation",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/promi/OneDrive/Documents/GitHub/lab09-A-pononokp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Issue.Navigation&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="OrderService.main" />
@@ -95,7 +92,8 @@
       <updated>1707868599236</updated>
       <workItem from="1707868600298" duration="61000" />
       <workItem from="1711061124388" duration="4548000" />
-      <workItem from="1711383187144" duration="10441000" />
+      <workItem from="1711383187144" duration="11047000" />
+      <workItem from="1711651687742" duration="4470000" />
     </task>
     <servers />
   </component>

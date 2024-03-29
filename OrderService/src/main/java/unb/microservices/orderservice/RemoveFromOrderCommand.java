@@ -5,7 +5,6 @@ public class RemoveFromOrderCommand extends Command{
     @Override
     public void execute() {
         Command.getOrder().getItems().remove(item);
-        //add db method
     }
 
     @Override
