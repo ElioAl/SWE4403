@@ -5,5 +5,7 @@ public interface Product {
     public Product readProduct(int ID);
     public void updateProduct(int ID);
     public Product deleteProduct(int ID);
+    public void setItemName(String name);
+    public void setPrice(double p);
 
 }

@@ -17,6 +17,14 @@ public class DairyProduct implements Product {
     private RestTemplate restTemplate;
 
 
+    public void setItemName(String name) {
+        itemName = name;
+    }
+    public void setPrice(double p) {
+        price = p;
+    }
+
+
     @Override
     public void createProduct(Product createdProduct) {
         String url = "http://localhost:8081/add_product";

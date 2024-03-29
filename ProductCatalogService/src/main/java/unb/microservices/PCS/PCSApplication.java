@@ -1,11 +1,15 @@
 package unb.microservices.PCS;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.CommandLineRunner;
+
 
 @SpringBootApplication
-public class PCSApplication {
-
+public class PCSApplication implements CommandLineRunner {
+	@Autowired
+	private Product product;
 
 	/**
 	 * go to http://localhost:8080
@@ -21,8 +25,14 @@ public class PCSApplication {
 			e.printStackTrace();
 		}
 		System.out.println("PCS System online");
-		Product p = new DairyProduct();
-		p.createProduct(p);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("here");
+		product.setPrice(100);
+		product.setItemName("A single egg");
+		product.createProduct(product);
 	}
 
 }

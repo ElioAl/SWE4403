@@ -29,4 +29,14 @@ public class MeatProduct implements Product {
         //delete the product and return it. all good EA
         return null;
     }
+
+    @Override
+    public void setItemName(String name) {
+        itemName = name;
+    }
+
+    @Override
+    public void setPrice(double p) {
+        price = p;
+    }
 }
