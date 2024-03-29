@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bafa7a8-280a-47da-b29c-568fe0e43b7b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/FailedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/IntializedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/PaymentState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/PendingState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,9 @@
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/OrderService">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/PaymentService">
       <ProjectState />
     </projectState>
   </component>
@@ -37,6 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -74,10 +81,17 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
     <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="OrderService.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="unb.microservices.orderservice.OrderServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="PaymentService.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paymentservice.PaymentServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -94,7 +108,7 @@
       <workItem from="1707868600298" duration="61000" />
       <workItem from="1711061124388" duration="4548000" />
       <workItem from="1711383187144" duration="11047000" />
-      <workItem from="1711651687742" duration="5755000" />
+      <workItem from="1711651687742" duration="9469000" />
     </task>
     <servers />
   </component>

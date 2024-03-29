@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/DatabaseManagementSystem" />
     <file type="web" url="file://$PROJECT_DIR$/OrderService" />
+    <file type="web" url="file://$PROJECT_DIR$/PaymentService" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
