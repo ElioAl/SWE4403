@@ -1,5 +1,7 @@
 package com.example.databasemanagementsystem;
 
+import SharedDataTypes.User;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,6 +12,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DB_Connection {
+
+    static User UserLoggedIn;
     public static Connection Connect(){
         Connection dbConnection = null;
         Properties dbConnectionProps = new Properties();
@@ -69,6 +73,18 @@ public class DB_Connection {
         System.out.println("SQLException: " + e.getMessage());
         System.out.println("SQLState: " + e.getSQLState());
         System.out.println("VendorError: " + e.getErrorCode());
+    }
+
+    public static int getAuthority(String required){
+        String type = user_DB.getAuthority(UserLoggedIn.getUser_ID());
+        if(type.equals(required)){
+            return 200;
+        }
+        return 400;
+    }
+
+    public static void setAuthority(User loggedIn){
+        UserLoggedIn = loggedIn;
     }
 
     public static void main(String[] args){

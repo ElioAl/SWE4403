@@ -15,6 +15,6 @@ public class DBMSController {
     public void add_product(@RequestBody Product toAdd){
         System.out.println("RECEIVEDDDDDDDDDDDDDDDD");
         Database db = new DBAccess();
-        db.add_product(toAdd.getName(), toAdd.getCost(), toAdd.getQuantity(), toAdd.getCategory());
+        //db.add_product(toAdd.getName(), toAdd.getCost(), toAdd.getQuantity(), toAdd.getCategory());
     }
 }

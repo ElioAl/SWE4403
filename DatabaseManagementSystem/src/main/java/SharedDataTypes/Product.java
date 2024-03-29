@@ -5,7 +5,6 @@ public class Product {
     private String name;
     private double cost;
     private int quantity;
-
     private String category;
 
     public Product(int product_ID, String name, double cost, int quantity, String category){

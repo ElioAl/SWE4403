@@ -1,7 +1,6 @@
 package com.example.databasemanagementsystem;
 
 import SharedDataTypes.Product;
-import org.springframework.boot.autoconfigure.data.jdbc.JdbcRepositoriesAutoConfiguration;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -14,18 +13,16 @@ public class product_DB {
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
 
-        try{
+        try {
             dbStatement = dbConnection.prepareCall("{CALL add_product(?,?,?,?)}");
             dbStatement.setString("product_name", product_name);
             dbStatement.setDouble("product_price", product_price);
             dbStatement.setInt("product_quanity", quantity);
             dbStatement.setString("product_category", category);
             dbStatement.executeQuery();
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             DB_Connection.getSQLException(e);
-        }
-        finally{
+        } finally {
             DB_Connection.Closing(dbStatement, dbConnection);
         }
     }
@@ -61,7 +58,6 @@ public class product_DB {
     //not done
     public static ArrayList<Product> getCategory(String category){
         ArrayList<Product> result = null;
-
         return result;
     }
 
@@ -69,12 +65,12 @@ public class product_DB {
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
 
-        try{
+        try {
             dbStatement = dbConnection.prepareCall("{CALL update_quantity(?,?)}");
             dbStatement.setInt("product_ID", product_ID);
             dbStatement.setInt("product_quantity", quantity);
             dbStatement.executeQuery();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {
             DB_Connection.Closing(dbStatement, dbConnection);
@@ -85,7 +81,7 @@ public class product_DB {
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
 
-        try{
+        try {
             dbStatement = dbConnection.prepareCall("{CALL updateProduct(?,?,?,?,?)}");
             dbStatement.setInt("product_ID", toUpdate.getProduct_ID());
             dbStatement.setString("product_name", toUpdate.getName());
@@ -93,7 +89,7 @@ public class product_DB {
             dbStatement.setInt("product_quantity", toUpdate.getQuantity());
             dbStatement.setString("product_category", toUpdate.getCategory());
             dbStatement.executeQuery();
-        } catch(SQLException e){
+        } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {
             DB_Connection.Closing(dbStatement, dbConnection);
@@ -105,11 +101,11 @@ public class product_DB {
         CallableStatement dbStatement = null;
         Product result = null;
         ResultSet dbResultSet = null;
-        try{
+        try {
             dbStatement = dbConnection.prepareCall("{CALL deleteProduct(?)}");
             dbStatement.setInt("product_ID", product_ID);
             dbResultSet = dbStatement.executeQuery();
-            if(dbResultSet.next()){
+            if (dbResultSet.next()) {
                 int id = dbResultSet.getInt("Product_ID");
                 String name = dbResultSet.getString("product_name");
                 double cost = dbResultSet.getDouble("product_cost");
@@ -117,7 +113,7 @@ public class product_DB {
                 String category = dbResultSet.getString("product_category");
                 result = new Product(id, name, cost, quantity, category);
             }
-        } catch(SQLException e){
+        } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {
             DB_Connection.Closing(dbStatement, dbConnection);
