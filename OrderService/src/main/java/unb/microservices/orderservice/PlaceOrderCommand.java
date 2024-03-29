@@ -1,8 +1,9 @@
 package unb.microservices.orderservice;
 
 public class PlaceOrderCommand extends Command{
+
     @Override
-    public void setItem(String item) {
+    public void setItem(Product item) {
 
     }
 

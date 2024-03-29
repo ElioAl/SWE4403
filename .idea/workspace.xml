@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bafa7a8-280a-47da-b29c-568fe0e43b7b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/FailedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/IntializedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/PaymentState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/PendingState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/AddToOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/AddToOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/CancelOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/CancelOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/RemoveFromOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/RemoveFromOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/Payment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +39,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="OrderService" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -63,11 +64,13 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2cKmMuMB40NvQSwjgNABCVkTbjV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -80,14 +83,30 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Issue.Navigation&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\luvid\IdeaProjects\SWE4403\CustomerService\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.paymentservice" />
+      <recent name="unb.microservices.orderservice" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
+    <configuration name="DatabaseManagementSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="DatabaseManagementSystem.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.databasemanagementsystem.DatabaseManagementSystemApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="OrderService.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="unb.microservices.orderservice.OrderServiceApplication" />
@@ -119,15 +138,25 @@
       <option name="presentableId" value="Default" />
       <updated>1707868599236</updated>
       <workItem from="1707868600298" duration="61000" />
-
       <workItem from="1711061124388" duration="4548000" />
       <workItem from="1711383187144" duration="11047000" />
-      <workItem from="1711651687742" duration="9469000" />
+      <workItem from="1711651687742" duration="13804000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

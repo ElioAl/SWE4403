@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Payment {
     private int userId;
-    private float amount;
+    private ArrayList<Product> items;
     private int cardNumber;
     private int amountInCard;
     private PaymentState state;
 
-    public Payment(float amount, int cardNumber, int amountInCard) {
-        this.amount = amount;
+    public Payment(int userId, ArrayList<Product> items,int cardNumber, int amountInCard) {
+        this.userId = userId;
+        this.items = items;
         this.cardNumber = cardNumber;
         this.amountInCard =amountInCard;
         state =  new IntializedState();
@@ -29,6 +30,10 @@ public class Payment {
     }
 
     public float getAmount() {
+        float amount = 0;
+        for (Product item: items) {
+            amount += item.getCost();
+        }
         return amount;
     }
 

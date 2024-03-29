@@ -1,7 +1,7 @@
 package unb.microservices.orderservice;
 
 public class AddToOrderCommand extends Command{
-    private String item;
+    private Product item;
     @Override
     public void execute() {
         Command.getOrder().getItems().add(item);
@@ -12,7 +12,7 @@ public class AddToOrderCommand extends Command{
         Command.getOrder().getItems().remove(item);
     }
 
-    public void setItem(String itm){
+    public void setItem(Product itm){
         item = itm;
     }
 }

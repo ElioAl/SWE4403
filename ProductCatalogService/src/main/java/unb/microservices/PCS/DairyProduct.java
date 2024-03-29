@@ -1,19 +1,43 @@
 package unb.microservices.PCS;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-public class DairyProduct implements BaseProduct {
+
+@Service
+public class DairyProduct implements Product {
     private String itemName;
     private double price;
-    private int id;
+    DBConnection db = DBConnection.getDBInstance();
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+
+    public void setItemName(String name) {
+        itemName = name;
+    }
+    public void setPrice(double p) {
+        price = p;
+    }
+
 
     @Override
-    public void createProduct(BaseProduct purchasedProduct) {
-        // send new object to db. //db method ready: named add_product. EA
+    public void createProduct(Product createdProduct) {
+        String url = "http://localhost:8081/add_product";
+        HttpEntity<Product> req = new HttpEntity<>(createdProduct);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, req, String.class);
+        System.out.println("Status Code: " + response.getStatusCode());
+        System.out.println("Headers: " + response.getHeaders());
+        System.out.println("Body: " + response.getBody());
+
     }
 
     @Override
-    public BaseProduct readProduct(int ID) {
+    public Product readProduct(int ID) {
         // request product from ID on the DB, returns a // ready in db named get_product. EA
         return null;
     }
@@ -25,7 +49,7 @@ public class DairyProduct implements BaseProduct {
     }
 
     @Override
-    public BaseProduct deleteProduct(int ID) {
+    public Product deleteProduct(int ID) {
         //delete the product and return it.
         //all good, name: delete_product, returns Product object. EA
         return null;

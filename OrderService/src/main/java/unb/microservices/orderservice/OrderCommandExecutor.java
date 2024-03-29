@@ -9,23 +9,23 @@ public class OrderCommandExecutor {
     private Order order;
 
     public void createOrder(String id){
-        order = new Order(id, new ArrayList<String>(), "");
+        order = new Order(id, new ArrayList<Product>());
         Command.setCurrentOrder(order);
     }
 
-    public void addToOrder(String item){
+    public void addToOrder(Product item){
         Command addToOrder = new AddToOrderCommand();
         addToOrder.setItem(item);
         addToOrder.execute();
-        log.add("Added " + item);
+        log.add("Added " + item.getName());
         queue.add(addToOrder);
     }
 
-    public void removeFromOrder(String item){
+    public void removeFromOrder(Product item){
         Command removeFromOrder = new RemoveFromOrderCommand();
         removeFromOrder.setItem(item);
         removeFromOrder.execute();
-        log.add("Removed " + item);
+        log.add("Removed " + item.getName());
         queue.add(removeFromOrder);
     }
 
@@ -51,8 +51,8 @@ public class OrderCommandExecutor {
     }
 
     public void showCart(){
-        for (String item: Command.getOrder().getItems()) {
-            System.out.println(item);
+        for (Product item: Command.getOrder().getItems()) {
+            System.out.println(item.getName() + " : " + item.getCost());
         }
     }
 
