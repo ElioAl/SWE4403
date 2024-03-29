@@ -6,11 +6,14 @@ public class Product {
     private double cost;
     private int quantity;
 
-    public Product(int product_ID, String name, double cost, int quantity){
+    private String category;
+
+    public Product(int product_ID, String name, double cost, int quantity, String category){
         this.product_ID = product_ID;
         this.name = name;
         this.cost = cost;
         this.quantity = quantity;
+        this.category = category;
     }
 
     public int getProduct_ID(){
@@ -27,5 +30,9 @@ public class Product {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }

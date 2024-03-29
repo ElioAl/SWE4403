@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 public class product_DB {
-    public static void add_product(String product_name, double product_price, int quantity){
+    public static void add_product(String product_name, double product_price, int quantity, String category){
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
 
@@ -44,7 +44,8 @@ public class product_DB {
                 String name = dbResultSet.getString("product_name");
                 double cost = dbResultSet.getDouble("product_cost");
                 int quantity = dbResultSet.getInt("product_quanity");
-                Product prod = new Product(product_ID, name, cost, quantity);
+                String category = dbResultSet.getString("product_category");
+                Product prod = new Product(product_ID, name, cost, quantity, category);
                 result.add(prod);
             }
         } catch(SQLException e){
@@ -54,6 +55,13 @@ public class product_DB {
             DB_Connection.Closing(dbStatement, dbConnection);
             DB_Connection.ClosingResultSet(dbResultSet);
         }
+    }
+
+    //not done
+    public static ArrayList<Product> getCategory(String category){
+        ArrayList<Product> result = null;
+
+        return result;
     }
 
     public static void setProductQuantity(int product_ID, int quantity){
@@ -96,7 +104,6 @@ public class product_DB {
         Product result = null;
         ResultSet dbResultSet = null;
         try{
-
             dbStatement = dbConnection.prepareCall("{CALL deleteProduct(?)}");
             dbStatement.setInt("product_ID", product_ID);
             dbResultSet = dbStatement.executeQuery();
@@ -105,7 +112,8 @@ public class product_DB {
                 String name = dbResultSet.getString("product_name");
                 double cost = dbResultSet.getDouble("product_cost");
                 int quantity = dbResultSet.getInt("product_quantity");
-                result = new Product(id, name, cost, quantity);
+                String category = dbResultSet.getString("product_category");
+                result = new Product(id, name, cost, quantity, category);
             }
         } catch(SQLException e){
             DB_Connection.getSQLException(e);

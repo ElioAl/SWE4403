@@ -22,8 +22,8 @@ public class DBAccess implements Database{
     }
 
     @Override
-    public void add_product(String name, double cost, int quantity){
-        product_DB.add_product(name, cost, quantity);
+    public void add_product(String name, double cost, int quantity, String category){
+        product_DB.add_product(name, cost, quantity, category);
     }
 
     @Override
@@ -39,6 +39,11 @@ public class DBAccess implements Database{
     @Override
     public Product delete_product(int product_ID) {
         return product_DB.deleteProduct(product_ID);
+    }
+
+    @Override
+    public ArrayList<Product> getCategory(String category) {
+        return product_DB.getCategory(category);
     }
 
     @Override

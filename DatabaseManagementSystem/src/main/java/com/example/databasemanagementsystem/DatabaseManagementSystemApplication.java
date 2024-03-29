@@ -8,7 +8,7 @@ public class DatabaseManagementSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DatabaseManagementSystemApplication.class, args);
-        DB_Connection.main(null);
+        //DB_Connection.main(null);
     }
 
 }
