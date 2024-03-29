@@ -8,7 +8,8 @@ public class DatabaseManagementSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DatabaseManagementSystemApplication.class, args);
-        DB_Connection.main(null);
+        System.out.println("ITS WORKING MFS");
+        //DB_Connection.main(null);
     }
 
 }
