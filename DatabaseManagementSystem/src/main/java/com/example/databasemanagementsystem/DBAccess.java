@@ -32,6 +32,16 @@ public class DBAccess implements Database{
     }
 
     @Override
+    public void update_product(Product toUpdate) {
+        product_DB.updateProduct(toUpdate);
+    }
+
+    @Override
+    public Product delete_product(int product_ID) {
+        return product_DB.deleteProduct(product_ID);
+    }
+
+    @Override
     public void setProductQuantity(int product_ID, int quantity) {
         product_DB.setProductQuantity(product_ID ,quantity);
     }

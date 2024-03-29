@@ -1,6 +1,7 @@
 package com.example.databasemanagementsystem;
 
 import SharedDataTypes.Product;
+import org.springframework.boot.autoconfigure.data.jdbc.JdbcRepositoriesAutoConfiguration;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -69,5 +70,48 @@ public class product_DB {
         } finally {
             DB_Connection.Closing(dbStatement, dbConnection);
         }
+    }
+
+    public static void updateProduct(Product toUpdate){
+        Connection dbConnection = DB_Connection.Connect();
+        CallableStatement dbStatement = null;
+
+        try{
+            dbStatement = dbConnection.prepareCall("{CALL updateProduct(?,?,?,?)}");
+            dbStatement.setInt("product_ID", toUpdate.getProduct_ID());
+            dbStatement.setString("product_name", toUpdate.getName());
+            dbStatement.setDouble("product_cost", toUpdate.getCost());
+            dbStatement.setInt("product_quantity", toUpdate.getQuantity());
+            dbStatement.executeQuery();
+        } catch(SQLException e){
+            DB_Connection.getSQLException(e);
+        } finally {
+            DB_Connection.Closing(dbStatement, dbConnection);
+        }
+    }
+
+    public static Product deleteProduct(int product_ID){
+        Connection dbConnection = DB_Connection.Connect();
+        CallableStatement dbStatement = null;
+        Product result = null;
+        ResultSet dbResultSet = null;
+        try{
+
+            dbStatement = dbConnection.prepareCall("{CALL deleteProduct(?)}");
+            dbStatement.setInt("product_ID", product_ID);
+            dbResultSet = dbStatement.executeQuery();
+            if(dbResultSet.next()){
+                int id = dbResultSet.getInt("Product_ID");
+                String name = dbResultSet.getString("product_name");
+                double cost = dbResultSet.getDouble("product_cost");
+                int quantity = dbResultSet.getInt("product_quantity");
+                result = new Product(id, name, cost, quantity);
+            }
+        } catch(SQLException e){
+            DB_Connection.getSQLException(e);
+        } finally {
+            DB_Connection.Closing(dbStatement, dbConnection);
+        }
+        return result;
     }
 }

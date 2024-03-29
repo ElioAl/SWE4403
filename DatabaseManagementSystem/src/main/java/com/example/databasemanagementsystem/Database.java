@@ -14,6 +14,10 @@ public interface Database {
 
     void get_product(int product_ID);
 
+    void update_product(Product toUpdate); //not implemented
+
+    Product delete_product(int product_ID); //not implemented
+
     void setProductQuantity(int product_ID, int quantity);
 
     void placeOrder(int order_ID, ArrayList<Product> order);
