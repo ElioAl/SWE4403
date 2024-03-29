@@ -1,4 +1,4 @@
-package com.example;
+package unb.cb.customerservice;
 
 
 import org.springframework.context.annotation.Bean;

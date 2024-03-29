@@ -1,9 +1,16 @@
 package unb.cb.customerservice;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class CustomerService implements Customer {
+
+    @Autowired
+    private RestTemplate restTemplate;
+
     @Override
     public void addCustomer(String username, String password) {
-        user_DB.add_user(username, password);
+
     }
 
     @Override
