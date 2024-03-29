@@ -7,13 +7,40 @@ import SharedDataTypes.User;
 import java.util.ArrayList;
 
 public interface Database {
+
+    /**
+     * Add user to database
+     * @param username the user's username
+     * @param password the user's password
+     * @param type the user's type
+     */
     void add_user(String username, String password, String type);
 
+
+    /**
+     * delete a user from the database
+     * For security reasons, only the user themselves can delete their profile
+     * @param username the user's username
+     * @param password the user's password
+     */
     void delete_user(String username, String password) throws UnauthorizedAccessException;
     User get_User(int user_ID);
 
-    void getUserIDForAuthority(User loggedIn);
+    /**
+     * Save the logged-in user until the server is stopped
+     * @param loggedIn the user that is logged in
+     */
+    void getUserForAuthority(User loggedIn);
 
+    /**
+     * Add a product to the database
+     * For security reasons, only a retailer can add a product for sale
+     * @param name the name of the product
+     * @param cost the cost of the product
+     * @param quantity the quantity of the product
+     * @param category the category of the product
+     * @throws UnauthorizedAccessException Throw the exception if anyone other thant a retailer is attempting to add a product
+     */
     void add_product(String name, double cost, int quantity, String category) throws UnauthorizedAccessException;
 
     void get_product(int product_ID);

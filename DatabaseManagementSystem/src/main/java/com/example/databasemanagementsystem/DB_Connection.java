@@ -76,8 +76,7 @@ public class DB_Connection {
     }
 
     public static int getAuthority(String required){
-        String type = user_DB.getAuthority(UserLoggedIn.getUser_ID());
-        if(type.equals(required)){
+        if(UserLoggedIn.getUserType().equals(required)){
             return 200;
         }
         return 400;

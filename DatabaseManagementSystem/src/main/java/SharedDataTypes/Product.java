@@ -1,11 +1,11 @@
 package SharedDataTypes;
 
 public class Product {
-    private int product_ID;
-    private String name;
-    private double cost;
-    private int quantity;
-    private String category;
+    private final int product_ID;
+    private final String name;
+    private final double cost;
+    private final int quantity;
+    private final String category;
 
     public Product(int product_ID, String name, double cost, int quantity, String category){
         this.product_ID = product_ID;

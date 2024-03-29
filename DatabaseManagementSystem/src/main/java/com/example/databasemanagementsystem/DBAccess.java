@@ -28,7 +28,7 @@ public class DBAccess implements Database{
     }
 
     @Override
-    public void getUserIDForAuthority(User loggedIn) {
+    public void getUserForAuthority(User loggedIn) {
         DB_Connection.setAuthority(loggedIn);
     }
 
