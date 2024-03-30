@@ -8,7 +8,7 @@ public class OrderCommandExecutor {
 
     private Order order;
 
-    public void createOrder(String id){
+    public void createOrder(int id){
         order = new Order(id, new ArrayList<Product>());
         Command.setCurrentOrder(order);
     }
