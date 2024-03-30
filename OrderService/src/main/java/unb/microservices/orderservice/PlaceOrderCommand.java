@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,6 +16,8 @@ public class PlaceOrderCommand extends Command{
 
     @Autowired
     private RestTemplate restTemplate;
+    private int cardNumber;
+    private double amountInCard;
 
     @Override
     public void setItem(Product item) {
@@ -23,7 +26,7 @@ public class PlaceOrderCommand extends Command{
 
     @Override
     public void execute() {
-        String url = "http://localhost:8083/pay";
+        String url = "http://localhost:8083/pay?userId={userId}&cardNumber={cardNumber}&amountInCard={amountInCard}";
         ListWrapper productListWrapper = new ListWrapper(Command.getOrder().getItems());
         // populate productListWrapper with your products
         HttpHeaders headers = new HttpHeaders();
@@ -31,13 +34,23 @@ public class PlaceOrderCommand extends Command{
 
         HttpEntity<ListWrapper> entity = new HttpEntity<>(productListWrapper, headers);
 
-        Map<String, Integer> uriVariables = new HashMap<>();
+        Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("userId", Command.getOrder().getUserId());
-        uriVariables.put("cardNumber", 2);
-        uriVariables.put("amountInCard", 3);
+        uriVariables.put("cardNumber", cardNumber);
+        uriVariables.put("amountInCard", amountInCard);
 
-       // ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
     }
+
+    public void setCardNumber(int cardNumber){
+        this.cardNumber = cardNumber;
+    }
+
+    public void setAmountInCard(double amountInCard){
+        this.amountInCard = amountInCard;
+    }
+
+
 
     @Override
     public void undo() {

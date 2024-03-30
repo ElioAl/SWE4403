@@ -37,6 +37,14 @@ public class Payment {
         return amount;
     }
 
+    public ArrayList<Product> getItems() {
+        return items;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
     public int getCardNumber() {
         return cardNumber;
     }

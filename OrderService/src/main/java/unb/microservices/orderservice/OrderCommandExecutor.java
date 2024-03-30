@@ -13,7 +13,11 @@ public class OrderCommandExecutor {
         Command.setCurrentOrder(order);
     }
 
-    public void addToOrder(Product item){
+    public void addToOrder(Product item, int id){
+        if(order == null){
+            createOrder(id);
+        }
+
         Command addToOrder = new AddToOrderCommand();
         addToOrder.setItem(item);
         addToOrder.execute();
@@ -29,15 +33,20 @@ public class OrderCommandExecutor {
         queue.add(removeFromOrder);
     }
 
-    public void placeOrder(){
-        Command placeOrder = new PlaceOrderCommand();
+    public void placeOrder(int cardNumber, double amountInCard){
+        PlaceOrderCommand placeOrder = new PlaceOrderCommand();
+        placeOrder.setAmountInCard(amountInCard);
+        placeOrder.setCardNumber(cardNumber);
+
         placeOrder.execute();
         log.add("Placed Order ");
         queue.add(placeOrder);
     }
 
-    public void cancelOrder(){
-        Command cancelOrder = new CancelOrderCommand();
+    public void cancelOrder(int orderId){
+        CancelOrderCommand cancelOrder = new CancelOrderCommand();
+        cancelOrder.setOrderId(orderId);
+
         cancelOrder.execute();
         log.add("Cancelled Order ");
         queue.add(cancelOrder);
