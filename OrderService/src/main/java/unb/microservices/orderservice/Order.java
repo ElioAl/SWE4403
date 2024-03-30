@@ -3,10 +3,10 @@ package unb.microservices.orderservice;
 import java.util.ArrayList;
 
 public class Order {
-    private String userId;
+    private int userId;
     private ArrayList<Product> items;
 
-    public Order(String id, ArrayList<Product> itm){
+    public Order(int id, ArrayList<Product> itm){
         userId = id;
         items = itm;
     }
@@ -15,7 +15,7 @@ public class Order {
 
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
@@ -23,7 +23,7 @@ public class Order {
         return items;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
