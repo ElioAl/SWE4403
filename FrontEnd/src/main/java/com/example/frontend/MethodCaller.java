@@ -1,5 +1,6 @@
 package com.example.frontend;
 
+import com.example.frontend.SharedDataTypes.ListWrapper;
 import com.example.frontend.SharedDataTypes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -27,4 +28,52 @@ public class MethodCaller {
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
     }
+
+    public void removeFromOrder(Product product){
+        String url = "http://localhost:8082/removeFromOrder";
+        HttpEntity<Product> entity = new HttpEntity<>(product);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+    }
+
+    //Revise this method to send without entity
+    public void placeOrder(int cardNumber, int amountInCard){
+        String url = "http://localhost:8082/placeOrder?cardNumber={cardNumber}&amountInCard={amountInCard}";
+
+        HttpEntity<Object> entity = new HttpEntity<>(new Object());
+
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("cardNumber", cardNumber);
+        uriVariables.put("amountInCard", amountInCard);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+    }
+
+    public void cancelOrder(int orderId){
+        String url = "http://localhost:8082/cancelOrder?orderId={orderId}";
+
+        HttpEntity<Object> entity = new HttpEntity<>(new Object());
+
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("orderId", orderId);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+    }
+
+    public void undoActionForCart(){
+        String url = "http://localhost:8082/undo";
+
+        HttpEntity<Object> entity = new HttpEntity<>(new Object());
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+    }
+
+    public void showCart(){
+        String url = "http://localhost:8082/showCart";
+
+        HttpEntity<Object> entity = new HttpEntity<>(new Object());
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+    }
+
 }

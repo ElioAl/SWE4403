@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bafa7a8-280a-47da-b29c-568fe0e43b7b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/RestConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/main/java/com/example/frontend/SharedDataTypes/ListWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/CancelOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/CancelOrderCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/example/paymentservice/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +17,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/DatabaseManagementSystem">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/FrontEnd">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/OrderService">
@@ -93,6 +91,7 @@
       <recent name="C:\Users\luvid\IdeaProjects\SWE4403\CustomerService\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.frontend.SharedDataTypes" />
       <recent name="com.example.paymentservice" />
       <recent name="unb.microservices.orderservice" />
     </key>
@@ -101,6 +100,13 @@
     <configuration name="DatabaseManagementSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="DatabaseManagementSystem.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.databasemanagementsystem.DatabaseManagementSystemApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FrontEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="FrontEnd.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.frontend.FrontEndApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
