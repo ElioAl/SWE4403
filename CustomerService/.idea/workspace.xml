@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="" />
+    <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DairyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DairyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DairyProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DairyProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/MeatFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/MeatFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/MeatProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/MeatProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/PCSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/PCSApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/ProductFactory.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,10 +64,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.CustomerServiceApplication.executor": "Run",
-    "git-widget-placeholder": "Customer-Service",
+    "git-widget-placeholder": "Product-Catalog-Service",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/luvid/IdeaProjects/4403/SWE4403/CustomerService",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
@@ -95,6 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711753929905</updated>
       <workItem from="1711753931078" duration="230000" />
+      <workItem from="1711839221147" duration="366000" />
     </task>
     <servers />
   </component>

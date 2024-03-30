@@ -30,8 +30,8 @@ public class PCSApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("here");
-		product.setPrice(100);
-		product.setItemName("A single egg");
+		ProductFactory pfact = new DairyFactory();
+		Product p = pfact.createProduct();
 	}
 
 }
