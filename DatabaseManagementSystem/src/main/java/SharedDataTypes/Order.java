@@ -5,6 +5,8 @@ public class Order {
     private int[] product_ID;
     private int user_ID;
 
+    private Order_Tracking status;
+
     public Order(int order_ID, int[] product_ID, int user_ID){
         this.order_ID = order_ID;
         this.product_ID = product_ID;
@@ -25,5 +27,9 @@ public class Order {
 
     public void setProduct_ID(int[] product_ID) {
         this.product_ID = product_ID;
+    }
+
+    public void setStatus(Order_Tracking status){
+        this.status = status;
     }
 }
