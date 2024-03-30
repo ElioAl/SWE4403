@@ -16,8 +16,7 @@ import java.util.Map;
 @Service
 public class MethodCaller {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplate = new RestTemplate();
 
     public void addToOrder(Product product){
         String url = "http://localhost:8082/addToOrder?userId={userId}";
@@ -73,7 +72,26 @@ public class MethodCaller {
 
         HttpEntity<Object> entity = new HttpEntity<>(new Object());
 
+
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
 
+    public void sendUserforAuthority(String username, String password){
+        String url = "http://localhost:8081/getUserForAuthority?username={username}&password={password}";
+
+        //HttpHeaders headers = new HttpHeaders();
+        //headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, Object> requestBody = new HashMap<>();
+        requestBody.put("username", username);
+        requestBody.put("password", password);
+
+        //HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(requestBody, headers);
+        try{
+            ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, requestBody);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

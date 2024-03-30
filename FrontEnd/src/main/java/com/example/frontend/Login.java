@@ -5,10 +5,11 @@ import com.example.frontend.SharedDataTypes.User;
 import java.util.Scanner;
 
 public class Login {
+
+    static int authority = 0;
     public static User login(){
         String username = "";
         String password = "";
-        int authority = 1;
         System.out.println("-----Welcome to ...-----");
         Scanner scan = new Scanner(System.in);
         boolean loggedIn = false;
@@ -36,13 +37,19 @@ public class Login {
                 System.out.println("Incorrect Command");
             }
         }
-        //send the user to DBMS
-        //get authority from DBMS
+
+        MethodCaller name = new MethodCaller();
+        name.sendUserforAuthority(username, password);
+
         if(authority == 1){
             View.CustomerView();
         } else {
             View.RetailerView();
         }
         return userIn;
+    }
+
+    public static void setAuthority(int in){
+        authority = in;
     }
 }

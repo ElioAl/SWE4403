@@ -14,6 +14,8 @@ import java.util.ArrayList;
 @RestController
 public class DBMSController {
 
+    MethodSender send = new MethodSender();
+
     Database db = new DBAccess();
     private RestTemplate restTemplate;
 
@@ -29,8 +31,14 @@ public class DBMSController {
     }
 
     @PostMapping("/getUserForAuthority")
-    public void getUserForAuthority(@RequestBody User loggedIn){
-        db.getUserForAuthority(loggedIn);
+    public void getUserForAuthority(@RequestParam("username") String username, @RequestParam("password") String password){
+        db.getUserForAuthority(username, password);
+        send.sendAuthority(db.sendAuthority());
+    }
+
+    @PostMapping("/sendAuthority")
+    public void sendAuthority(){
+        db.sendAuthority();
     }
 
     @PostMapping("/add_product")

@@ -1,6 +1,7 @@
 package com.example.databasemanagementsystem;
 
 import SharedDataTypes.User;
+import org.apache.catalina.startup.UserConfig;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -82,8 +83,8 @@ public class DB_Connection {
         return 400;
     }
 
-    public static void setAuthority(User loggedIn){
-        UserLoggedIn = loggedIn;
+    public static void setAuthority(String username, String password){
+        UserLoggedIn = user_DB.login(username, password);
     }
 
     public static void main(String[] args){

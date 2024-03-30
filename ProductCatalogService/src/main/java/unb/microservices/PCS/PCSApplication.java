@@ -21,7 +21,7 @@ public class PCSApplication implements CommandLineRunner {
 			SpringApplication.run(PCSApplication.class, args);
 		}
 		catch(Exception e) {
-			System.out.println("Something went wrong: " + e.getMessage() + "/nStack Trace: ");
+			System.out.println("Something went wrong: " + e.getMessage() + "\nStack Trace: ");
 			e.printStackTrace();
 		}
 		System.out.println("PCS System online");

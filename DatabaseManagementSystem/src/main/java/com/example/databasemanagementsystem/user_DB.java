@@ -71,6 +71,33 @@ public class user_DB {
         return result;
     }
 
+    public static User login(String username, String password){
+        Connection dbConnection = DB_Connection.Connect();
+        CallableStatement dbStatement = null;
+        ResultSet dbResultSet = null;
+        User result = null;
+        try{
+            dbStatement = dbConnection.prepareCall("{CALL login(?,?)}");
+            dbStatement.setString("username", username);
+            dbStatement.setString("password", password);
+            dbResultSet = dbStatement.executeQuery();
+            while(dbResultSet.next()){
+                int user_ID = dbResultSet.getInt("user_ID");
+                String type = dbResultSet.getString("type");
+                result = new User(user_ID, username, password, type);
+            }
+        }
+        catch(SQLException e){
+            DB_Connection.getSQLException(e);
+            return null;
+        }
+        finally{
+            DB_Connection.Closing(dbStatement, dbConnection);
+            DB_Connection.ClosingResultSet(dbResultSet);
+        }
+        return result;
+    }
+
     public static String getAuthority(int user_id){
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
@@ -92,4 +119,6 @@ public class user_DB {
         }
         return res;
     }
+
+
 }

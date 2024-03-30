@@ -28,9 +28,12 @@ public interface Database {
 
     /**
      * Save the logged-in user until the server is stopped
-     * @param loggedIn the user that is logged in
+     * @param username the user that is logged in
+     * @param password the user's password that logged in
      */
-    void getUserForAuthority(User loggedIn);
+    void getUserForAuthority(String username, String password);
+
+    int sendAuthority();
 
     /**
      * Add a product to the database

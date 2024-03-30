@@ -28,8 +28,17 @@ public class DBAccess implements Database{
     }
 
     @Override
-    public void getUserForAuthority(User loggedIn) {
-        DB_Connection.setAuthority(loggedIn);
+    public void getUserForAuthority(String username, String password) {
+        DB_Connection.setAuthority(username, password);
+    }
+
+    @Override
+    public int sendAuthority() {
+        if(DB_Connection.UserLoggedIn.getUserType().equals("customer")){
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     @Override

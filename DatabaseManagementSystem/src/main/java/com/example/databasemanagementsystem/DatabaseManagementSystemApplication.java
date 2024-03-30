@@ -7,9 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DatabaseManagementSystemApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DatabaseManagementSystemApplication.class, args);
-        System.out.println("ITS WORKING MFS");
-        //DB_Connection.main(null);
-    }
+        try {
+            SpringApplication.run(DatabaseManagementSystemApplication.class, args);
+            System.out.println("Starting Database Management System");
+            //DB_Connection.main(null);
+        }
+        catch(Exception e){
+            System.out.println("Error starting Database Management System");
+            System.out.println("Error: " + e.getMessage());
+        }
 
+        System.out.println("Database Management System Online");
+    }
 }
