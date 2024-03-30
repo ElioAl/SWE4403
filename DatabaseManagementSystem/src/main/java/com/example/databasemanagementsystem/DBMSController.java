@@ -19,7 +19,8 @@ public class DBMSController {
 
     @PostMapping("/add_user")
     public void add_user (@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("type") String type) {
-        db.add_user(username, password, type);
+        //db.add_user(username, password, type);
+        System.out.println("sup fuckers " + username + " " + password + " " + type);
     }
 
     @PostMapping("/delete_user")
