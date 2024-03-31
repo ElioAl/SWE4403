@@ -36,7 +36,7 @@ public class MethodCaller {
     }
 
     //Revise this method to send without entity
-    public void placeOrder(int cardNumber, int amountInCard){
+    public void placeOrder(int cardNumber, double amountInCard){
         String url = "http://localhost:8082/placeOrder?cardNumber={cardNumber}&amountInCard={amountInCard}";
 
         HttpEntity<Object> entity = new HttpEntity<>(new Object());
@@ -71,7 +71,6 @@ public class MethodCaller {
         String url = "http://localhost:8082/showCart";
 
         HttpEntity<Object> entity = new HttpEntity<>(new Object());
-
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }

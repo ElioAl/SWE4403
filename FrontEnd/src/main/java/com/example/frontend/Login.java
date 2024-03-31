@@ -41,10 +41,12 @@ public class Login {
         MethodCaller name = new MethodCaller();
         name.sendUserforAuthority(username, password);
 
+        View view = new View();
+
         if(authority == 1){
-            View.CustomerView();
+            view.CustomerView();
         } else {
-            View.RetailerView();
+            view.RetailerView();
         }
         return userIn;
     }
