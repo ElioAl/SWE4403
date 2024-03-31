@@ -1,10 +1,22 @@
 package unb.microservices.orderservice;
 
-import java.util.ArrayList;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
 public class OrderCommandExecutor {
     private ArrayList<String> log;
     private ArrayList<Command> queue;
+
+    private RestTemplate restTemplate = new RestTemplate();
 
     private Order order;
 
@@ -63,6 +75,15 @@ public class OrderCommandExecutor {
         for (Product item: Command.getOrder().getItems()) {
             System.out.println(item.getName() + " : " + item.getCost());
         }
+        String url = "http://localhost:8086/showCart";
+        ListWrapper productListWrapper = new ListWrapper(Command.getOrder().getItems());
+        // populate productListWrapper with your products
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<ListWrapper> entity = new HttpEntity<>(productListWrapper, headers);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
 
 }

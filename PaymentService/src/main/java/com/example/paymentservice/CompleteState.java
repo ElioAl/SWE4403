@@ -14,12 +14,10 @@ import java.util.Map;
 @Service
 public class CompleteState implements PaymentState{
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplate = new RestTemplate();
 
     @Override
     public void proccess(Payment payment) {
-        System.out.println("Payment Complete");
         String url = "http://localhost:8081/placeOrder?userId={userId}";
         ListWrapper productListWrapper = new ListWrapper(payment.getItems());
         // populate productListWrapper with your products
@@ -32,6 +30,7 @@ public class CompleteState implements PaymentState{
         uriVariables.put("userId", payment.getUserId());
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+        System.out.println("Payment Complete");
         //add database method
     }
 }
