@@ -1,11 +1,15 @@
 package com.example.databasemanagementsystem;
 
+import SharedDataTypes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,5 +27,18 @@ public class MethodSender {
         uriVariables.put("in", authority);
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, uriVariables);
+    }
+
+    public void sendCategory(ArrayList<Product> toSend){
+        String url = "http://localhost:8086/sendCategory";
+
+        ListWrapper wrapper = new ListWrapper(toSend);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<ListWrapper> entity = new HttpEntity<>(wrapper);
+
+        ResponseEntity<String> reponse = restTemplate.postForEntity(url, entity, String.class);
     }
 }

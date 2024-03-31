@@ -19,4 +19,10 @@ public class MethodRequester {
         Cart displayer = new Cart();
         displayer.displayCart(cart.getObject());
     }
+
+    @PostMapping("/sendCategory")
+    public void receiveCategory(@RequestBody ListWrapper productList){
+        Categories cat = new Categories();
+        cat.getList(productList.getObject());
+    }
 }

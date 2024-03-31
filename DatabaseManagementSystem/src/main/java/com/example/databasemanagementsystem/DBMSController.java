@@ -76,6 +76,7 @@ public class DBMSController {
     public void getCategory(@RequestParam("category") String category){
         ArrayList<Product> toReturn = new ArrayList<>();
         toReturn = db.getCategory(category);
+
     }
 
     @PostMapping("/setProductQuantity")

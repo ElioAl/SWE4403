@@ -91,4 +91,13 @@ public class MethodCaller {
             System.out.println(e.getMessage());
         }
     }
+
+    public void getList(String category){
+        String url = "http://localhost:8081/getCategory?category={category}";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("category", category);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+    }
 }

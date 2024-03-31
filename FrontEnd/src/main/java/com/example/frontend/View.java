@@ -39,7 +39,8 @@ public class View {
                         System.out.println("Select a Category to View The Products or Enter Return to Return to Menu");
                         cat = scan.nextLine().toLowerCase();
                         if(cat.equals("dairy") || cat.equals("meat")){
-                            Categories.getList(cat);
+                            caller.getList(cat);
+
                         } else {
                             System.out.println("Invalid category");
                         }
