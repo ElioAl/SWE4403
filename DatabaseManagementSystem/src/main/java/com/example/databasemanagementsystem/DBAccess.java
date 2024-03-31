@@ -42,8 +42,8 @@ public class DBAccess implements Database{
     }
 
     @Override
-    public void get_product(int product_ID){
-        product_DB.get_product(product_ID);
+    public Product get_product(int product_ID){
+        return product_DB.get_product(product_ID);
     }
 
     @Override

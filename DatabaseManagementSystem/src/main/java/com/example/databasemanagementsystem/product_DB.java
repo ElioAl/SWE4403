@@ -27,14 +27,13 @@ public class product_DB {
         }
     }
 
-    public static void get_product(int product_ID){
+    public static Product get_product(int product_ID){
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
         ResultSet dbResultSet = null;
-        ArrayList<Product> result = null;
+        Product result = null;
 
         try{
-            result = new ArrayList<>();
             dbStatement = dbConnection.prepareCall("{CALL get_product(?)}");
             dbStatement.setInt("product_ID", product_ID);
             dbResultSet = dbStatement.executeQuery();
@@ -43,8 +42,7 @@ public class product_DB {
                 double cost = dbResultSet.getDouble("product_cost");
                 int quantity = dbResultSet.getInt("product_quanity");
                 String category = dbResultSet.getString("product_category");
-                Product prod = new Product(product_ID, name, cost, quantity, category);
-                result.add(prod);
+                result = new Product(product_ID, name, cost, quantity, category);
             }
         } catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -53,6 +51,8 @@ public class product_DB {
             DB_Connection.Closing(dbStatement, dbConnection);
             DB_Connection.ClosingResultSet(dbResultSet);
         }
+
+        return result;
     }
 
     //not done

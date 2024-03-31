@@ -1,16 +1,21 @@
 package unb.microservices.PCS;
 
+import SharedDataTypes.ProductPacket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 //singleton class to manage db instance.
 @Service
 public class DBConnection {
-    @Autowired
-    private RestTemplate restTemplate;
+
+    private RestTemplate restTemplate  = new RestTemplate();;
     private static volatile DBConnection DBInstance;
     private DBConnection () {}
 
@@ -21,33 +26,54 @@ public class DBConnection {
     }
 
 
-    public void createProduct(Product createdProduct) {
-        String url = "http://localhost:8081/add_product";
-        HttpEntity<Product> req = new HttpEntity<>(createdProduct);
-        ResponseEntity<String> response = restTemplate.postForEntity(url, req, String.class);
+    public void createProduct(Product createdProduct, String type) {
+        String url = "http://localhost:8081/add_product?name={name}&cost={cost}&quantity={quantity}&type={type}";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", createdProduct.getName());
+        params.put("cost", createdProduct.getCost());
+        params.put("quantity", createdProduct.getQuantity());
+        params.put("type", type);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
         System.out.println("Status Code: " + response.getStatusCode());
         System.out.println("Headers: " + response.getHeaders());
         System.out.println("Body: " + response.getBody());
-
     }
 
-    public Product readProduct(int ID) {
+
+    public Product readProduct(int product_ID) {
         // request product from ID on the DB, returns a // ready in db named get_product. EA
-        return null;
-    }
-    public void updateProduct(int ID) {
-        // need to update the signature of this method.
-        // update a product in the db.
-        //ready in DB, names update_product, send a Product object. EA
-    }
-
-    public Product deleteProduct(int ID) {
-        //delete the product and return it.
-        //all good, name: delete_product, returns Product object. EA
-        return null;
+        String url = "http://localhost:8081/get_product?product_ID={product_ID}";
+        ProductPacket productPacket = restTemplate.getForObject(url, ProductPacket.class, product_ID);
+        return deSerialize(productPacket);
     }
 
 
+    public void updateProduct(Product toUpdate) {
+        String url = "http://localhost:8081/update_product";
+        ProductPacket result = serialize(toUpdate);
+        HttpEntity<ProductPacket> request = new HttpEntity<>(result);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
+    }
 
-    //specific update/read methods
+    public Product deleteProduct(int product_ID) {
+        String url = "http://localhost:8081/delete_product?product_ID={product_ID}";
+        ProductPacket productPacket = restTemplate.getForObject(url, ProductPacket.class, product_ID);
+        return deSerialize(productPacket);
+    }
+
+    private ProductPacket serialize (Product toSerialize) {
+        return new ProductPacket(toSerialize.getProduct_ID(), toSerialize.getName(), toSerialize.getCost(), toSerialize.getQuantity(), toSerialize.getCategory());
+    }
+
+    private Product deSerialize(ProductPacket toDeserialize) {
+        ProductFactory PF = null;
+        Product result = null;
+        if (toDeserialize.type.equals("dairy")) {
+            result = new DairyProduct(toDeserialize.product_ID, toDeserialize.name, toDeserialize.cost, toDeserialize.quantity, toDeserialize.type);
+        }
+        else if (toDeserialize.type.equals("meat")) {
+            result = new MeatProduct(toDeserialize.product_ID, toDeserialize.name, toDeserialize.cost, toDeserialize.quantity, toDeserialize.type);
+        }
+        return result;
+    }
 }
