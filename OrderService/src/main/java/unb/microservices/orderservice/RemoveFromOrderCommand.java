@@ -4,7 +4,12 @@ public class RemoveFromOrderCommand extends Command{
     private Product item;
     @Override
     public void execute() {
-        Command.getOrder().getItems().remove(item);
+        for (int i = 0; i<Command.getOrder().getItems().size(); i++) {
+            if(item.getName().equals(Command.getOrder().getItems().get(i).getName())){
+                Command.getOrder().getItems().remove(i);
+                break;
+            }
+        }
     }
 
     @Override
