@@ -19,13 +19,14 @@ public class DBMSController {
 
     @PostMapping("/add_user")
     public void add_user (@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("type") String type) {
-        //db.add_user(username, password, type);
+        db.add_user(username, password, type);
         System.out.println("sup fuckers " + username + " " + password + " " + type);
     }
 
     @PostMapping("/delete_user")
     public void delete_user(@RequestParam("username") String username, @RequestParam("password") String password) throws UnauthorizedAccessException {
         db.delete_user(username, password);
+        System.out.println("bye fuckers " + username + " " + password);
     }
 
     @PostMapping("/getUserForAuthority")

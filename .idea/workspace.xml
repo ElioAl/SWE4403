@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bafa7a8-280a-47da-b29c-568fe0e43b7b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CustomerService/src/main/java/unb/cb/customerservice/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomerService/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerService/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomerService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomerService/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerService/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomerService/src/main/java/unb/cb/customerservice/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerService/src/main/java/unb/cb/customerservice/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomerService/src/main/java/unb/cb/customerservice/RestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerService/src/main/java/unb/cb/customerservice/RestConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomerService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBMSController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

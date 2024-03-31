@@ -28,6 +28,12 @@ public class CustomerService implements Customer {
 
     @Override
     public void deleteCustomer(String username, String password) {
+        String url = "http://localhost:8081/add_user?username={username}&password={password}&type={type}\"";
+        Map<String, String> params = new HashMap<>();
+        params.put("username", username);
+        params.put("password", password);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
 
     }
 
