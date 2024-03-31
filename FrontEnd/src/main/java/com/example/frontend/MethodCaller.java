@@ -72,7 +72,6 @@ public class MethodCaller {
 
         HttpEntity<Object> entity = new HttpEntity<>(new Object());
 
-
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
 

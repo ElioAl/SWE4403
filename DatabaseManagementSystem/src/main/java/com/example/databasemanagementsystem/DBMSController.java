@@ -73,8 +73,8 @@ public class DBMSController {
     }
 
     @PostMapping("/placeOrder")
-    public void placeOrder(@RequestParam("order_ID") int order_ID, @RequestBody ArrayList<Product> order){
-        db.placeOrder(order_ID, order);
+    public void placeOrder(@RequestParam("order_ID") int order_ID, @RequestBody ListWrapper order){
+        db.placeOrder(order_ID, order.getObject());
     }
 
     @PostMapping("/cancelOrder")

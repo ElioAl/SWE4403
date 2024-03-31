@@ -15,8 +15,8 @@ import java.util.Map;
 
 @Service
 public class CancelOrderCommand extends Command{
-    @Autowired
-    private RestTemplate restTemplate;
+
+    private RestTemplate restTemplate = new RestTemplate();
 
     private int orderId;
 
@@ -30,12 +30,11 @@ public class CancelOrderCommand extends Command{
         Command.setCurrentOrder(new Order());
         String url = "http://localhost:8081/cancelOrder?orderId={orderId}";
 
-        HttpEntity<Object> entity = new HttpEntity<>(new Object());
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("orderId", orderId);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
-        //add database method
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, uriVariables);
+
     }
 
     public void setOrderId(int orderId) {
