@@ -1,17 +1,26 @@
 package com.example.frontend;
 
-import com.example.frontend.View;
+import com.example.frontend.SharedDataTypes.Product;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cart {
 
+    ArrayList<Product> cart;
     MethodCaller caller = new MethodCaller();
-    public static void showCart(){
+    public void displayCart(ArrayList<Product> list){
+        this.cart = list;
+        int counter = 1;
+        System.out.println("Index\tItem Name : Item Cost");
+        for (Product item: list) {
+            System.out.println(counter + "\t" + item.getName() + " : " + item.getCost());
+        }
+
         Cart cart = new Cart();
-        int result = 0;
         System.out.println("In cart");
-        System.out.println("To Remove a Product from the Cart, Enter \"Delete\"");
+        System.out.println("To Remove a Product from the List, Enter \"Delete\"");
         System.out.println("To Change the Quantity of a Product, Enter \"Change Quantity\"");
         System.out.println("To Proceed to Checkout, Enter \"Checkout\"");
         System.out.println("To return to Menu, Enter \"Menu\"");
@@ -22,30 +31,19 @@ public class Cart {
 
             switch (input) {
                 case "delete" -> deleteProduct();
-                case "change quantity" -> changeQuantity();
                 case "checkout" -> cart.placeOrder();
                 default -> System.out.println("Invalid Command");
             }
         }
     }
 
-    private static void changeQuantity() {
+    public void deleteProduct(){
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the product ID and the quantity you would like to remove");
-        System.out.print("Product ID: ");
-        int product_ID = scan.nextInt();
-        System.out.println("\nQuantity: ");
-        int quantity = scan.nextInt();
-
-        //send to remove quantity
-    }
-
-    public static void deleteProduct(){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the Product ID you would like to remove from the Cart");
-        System.out.print("Product ID: ");
+        System.out.println("Enter the Index of the product you would like to remove from the Cart");
+        System.out.print("Index: ");
         int input = scan.nextInt();
         //remove product
+        caller.removeFromOrder(this.cart.get(input-1));
     }
 
     public void placeOrder(){
@@ -58,4 +56,6 @@ public class Cart {
         caller.placeOrder(cardNumber, amount);
         //Get confirmation
     }
+    
+    
 }

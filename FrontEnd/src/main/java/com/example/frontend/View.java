@@ -19,7 +19,6 @@ public class View {
             switch(in){
                 case "cart":
                     caller.showCart();
-                    Cart.showCart();
                     break;
 
                 case "order":

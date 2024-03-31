@@ -23,24 +23,24 @@ public class OrderCommandExecutorController {
     }
 
     @PostMapping("/placeOrder")
-    public void place(@RequestParam("cardNumber") int cardNumber, @RequestParam("amountInCard") double amountInCard, @RequestBody Object object){
+    public void place(@RequestParam("cardNumber") int cardNumber, @RequestParam("amountInCard") double amountInCard){
         System.out.println("placed order");
         executor.placeOrder(cardNumber, amountInCard);
     }
     @PostMapping("/cancelOrder")
-    public void cancel(@RequestParam("orderId") int orderId, @RequestBody Object object){
+    public void cancel(@RequestParam("orderId") int orderId){
         System.out.println("cancelled order");
         executor.cancelOrder(orderId);
     }
 
     @PostMapping("/undo")
-    public void undo(@RequestBody Object object){
+    public void undo(){
         System.out.println("undo");
         executor.undo();
     }
 
     @PostMapping("/showCart")
-    public void showCart(@RequestBody Object object){
+    public void showCart(){
         System.out.println("Show cart");
         executor.showCart();
     }

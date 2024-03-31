@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -39,40 +40,37 @@ public class MethodCaller {
     public void placeOrder(int cardNumber, double amountInCard){
         String url = "http://localhost:8082/placeOrder?cardNumber={cardNumber}&amountInCard={amountInCard}";
 
-        HttpEntity<Object> entity = new HttpEntity<>(new Object());
 
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("cardNumber", cardNumber);
         uriVariables.put("amountInCard", amountInCard);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, uriVariables);
     }
 
     public void cancelOrder(int orderId){
         String url = "http://localhost:8082/cancelOrder?orderId={orderId}";
 
-        HttpEntity<Object> entity = new HttpEntity<>(new Object());
-
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("orderId", orderId);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, uriVariables);
     }
 
     public void undoActionForCart(){
         String url = "http://localhost:8082/undo";
 
-        HttpEntity<Object> entity = new HttpEntity<>(new Object());
-
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
     }
 
     public void showCart(){
         String url = "http://localhost:8082/showCart";
-
-        HttpEntity<Object> entity = new HttpEntity<>(new Object());
-
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+        try {
+            ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
+        }
+        catch(HttpServerErrorException e){
+            System.out.println("No orders Placed Yet");
+        }
     }
 
     public void sendUserforAuthority(String username, String password){

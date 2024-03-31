@@ -5,6 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -71,8 +72,8 @@ public class OrderCommandExecutor {
         queue.remove(len-1);
     }
 
-    public void showCart(){
-        for (Product item: Command.getOrder().getItems()) {
+    public void showCart() {
+        for (Product item : Command.getOrder().getItems()) {
             System.out.println(item.getName() + " : " + item.getCost());
         }
         String url = "http://localhost:8086/showCart";
@@ -84,6 +85,6 @@ public class OrderCommandExecutor {
         HttpEntity<ListWrapper> entity = new HttpEntity<>(productListWrapper, headers);
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
-    }
 
+    }
 }

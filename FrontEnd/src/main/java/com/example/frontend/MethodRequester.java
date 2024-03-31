@@ -15,8 +15,8 @@ public class MethodRequester {
     }
     @PostMapping("/showCart")
     public void showCart(@RequestBody ListWrapper cart){
-        for (Product item: cart.getObject()) {
-            System.out.println(item.getName() + " : " + item.getCost());
-        }
+
+        Cart displayer = new Cart();
+        displayer.displayCart(cart.getObject());
     }
 }
