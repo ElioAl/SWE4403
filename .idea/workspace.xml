@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bafa7a8-280a-47da-b29c-568fe0e43b7b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/main/java/com/example/frontend/SharedDataTypes/ListWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerService/src/main/java/unb/cb/customerservice/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerService/src/main/java/unb/cb/customerservice/CustomerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Customer-Service&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/luvid/IdeaProjects/4403/SWE4403/CustomerService&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -96,7 +94,7 @@
       <recent name="unb.microservices.orderservice" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DatabaseManagementSystemApplication">
+  <component name="RunManager">
     <configuration name="DatabaseManagementSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="DatabaseManagementSystem.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.databasemanagementsystem.DatabaseManagementSystemApplication" />
