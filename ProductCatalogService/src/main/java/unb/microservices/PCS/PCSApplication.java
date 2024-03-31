@@ -32,7 +32,6 @@ public class PCSApplication implements CommandLineRunner {
 		System.out.println("here");
 		product.setPrice(100);
 		product.setItemName("A single egg");
-		product.createProduct(product);
 	}
 
 }

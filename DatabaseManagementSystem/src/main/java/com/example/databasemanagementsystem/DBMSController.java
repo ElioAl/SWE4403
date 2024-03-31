@@ -71,7 +71,7 @@ public class DBMSController {
     }
 
     @PostMapping("/cancelOrder")
-    public void cancelOrder(@RequestParam Order toCancel) throws UnauthorizedAccessException {
-        db.cancelOrder(toCancel);
+    public void cancelOrder(@RequestParam("order_ID") int order_ID) throws UnauthorizedAccessException {
+        db.cancelOrder(order_ID);
     }
 }

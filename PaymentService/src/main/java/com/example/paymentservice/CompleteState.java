@@ -1,9 +1,37 @@
 package com.example.paymentservice;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
 public class CompleteState implements PaymentState{
+
+    @Autowired
+    private RestTemplate restTemplate;
+
     @Override
     public void proccess(Payment payment) {
         System.out.println("Payment Complete");
+        String url = "http://localhost:8081/placeOrder?userId={userId}";
+        ListWrapper productListWrapper = new ListWrapper(payment.getItems());
+        // populate productListWrapper with your products
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<ListWrapper> entity = new HttpEntity<>(productListWrapper, headers);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId", payment.getUserId());
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
         //add database method
     }
 }

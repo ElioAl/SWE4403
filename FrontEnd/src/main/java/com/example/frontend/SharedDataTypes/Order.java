@@ -1,4 +1,4 @@
-package SharedDataTypes;
+package com.example.frontend.SharedDataTypes;
 
 public class Order {
     private int order_ID;

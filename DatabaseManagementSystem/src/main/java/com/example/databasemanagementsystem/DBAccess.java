@@ -89,9 +89,10 @@ public class DBAccess implements Database{
     }
 
     @Override
-    public boolean cancelOrder(Order toCancel) throws UnauthorizedAccessException {
-        if (toCancel.getOrder_ID() == DB_Connection.UserLoggedIn.getUser_ID()) {
-            String toCheck = order_tracking_DB.getOrder(toCancel.getOrder_ID());
+    public boolean cancelOrder(int order_ID) throws UnauthorizedAccessException {
+        int user = order_DB.getOrderUser(order_ID);
+        if (user == DB_Connection.UserLoggedIn.getUser_ID()) {
+            String toCheck = order_DB.getOrderStatus(order_ID).toString();
             return toCheck.equals("NotPlaced") || toCheck.equals("Processing");
         } else {
             throw new UnauthorizedAccessException("Unauthorized access to cancel order");
