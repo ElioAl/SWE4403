@@ -1,5 +1,6 @@
 package unb.microservices.PCS;
 
+import SharedDataTypes.ProductPacket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,8 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
 public class PCSApplication implements CommandLineRunner {
-	@Autowired
-	private Product product;
 
 	/**
 	 * go to http://localhost:8080
@@ -30,8 +29,12 @@ public class PCSApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("here");
-		product.setPrice(100);
-		product.setItemName("A single egg");
+		DBConnection db = DBConnection.getDBInstance();
+		ProductFactory PF = new MeatFactory();
+		Product p = PF.createProduct(1, "Tomahawk steak", 3, 6, "meat");
+		Product pp = db.deleteProduct(69);
+		System.out.println(pp.getName());
+
 	}
 
 }

@@ -46,7 +46,7 @@ public interface Database {
      */
     void add_product(String name, double cost, int quantity, String category) throws UnauthorizedAccessException;
 
-    void get_product(int product_ID);
+    Product get_product(int product_ID);
 
     void update_product(Product toUpdate) throws UnauthorizedAccessException; //not implemented
 
