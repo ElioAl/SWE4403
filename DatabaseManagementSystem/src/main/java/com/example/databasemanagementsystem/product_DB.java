@@ -58,6 +58,29 @@ public class product_DB {
     //not done
     public static ArrayList<Product> getCategory(String category){
         ArrayList<Product> result = null;
+        Connection dbConnection = DB_Connection.Connect();
+        CallableStatement dbStatement = null;
+        ResultSet dbResultSet= null;
+        try{
+            dbStatement = dbConnection.prepareCall("{GetCategoryProducts(?)}");
+            dbStatement.setString("category", category);
+            dbResultSet = dbStatement.executeQuery();
+            while(dbResultSet.next()){
+                int id = dbResultSet.getInt("product_ID");
+                String name = dbResultSet.getString("product_name");
+                double cost = dbResultSet.getDouble("product_cost");
+                int quantity = dbResultSet.getInt("product_quantity");
+                String cat = dbResultSet.getString("product_category");
+                Product temp = new Product(id, name, cost, quantity, cat);
+                result.add(temp);
+            }
+        }
+        catch(SQLException e){
+            DB_Connection.getSQLException(e);
+        } finally {
+            DB_Connection.Closing(dbStatement, dbConnection);
+            DB_Connection.ClosingResultSet(dbResultSet);
+        }
         return result;
     }
 
