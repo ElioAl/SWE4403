@@ -16,7 +16,7 @@ public class CustomerServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("there");
-        customer.addCustomer("JimmyBillBob", "superstrongpassword");
+        //System.out.println("there");
+        //customer.addCustomer("JimmyBillBob", "superstrongpassword");
     }
 }

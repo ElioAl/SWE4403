@@ -5,11 +5,13 @@ import com.example.frontend.SharedDataTypes.User;
 import java.util.Scanner;
 
 public class Login {
-
     static int authority = 0;
+
+    static String username = "";
+    static String password = "";
     public static User login(){
-        String username = "";
-        String password = "";
+        MethodCaller name = new MethodCaller();
+
         System.out.println("-----Welcome to ...-----");
         Scanner scan = new Scanner(System.in);
         boolean loggedIn = false;
@@ -23,7 +25,7 @@ public class Login {
                 System.out.print("Enter desired password: ");
                 password = scan.nextLine();
                 System.out.println(username + " " + password);
-                //call Customer Service Method to add user + return user
+                name.addUser(username, password);
                 loggedIn = true;
             } else if (in.equals("Login")) {
                 System.out.print("username: ");
@@ -38,7 +40,7 @@ public class Login {
             }
         }
 
-        MethodCaller name = new MethodCaller();
+
         name.sendUserforAuthority(username, password);
 
         View view = new View();

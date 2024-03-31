@@ -2,6 +2,7 @@ package com.example.frontend;
 
 import com.example.frontend.SharedDataTypes.ListWrapper;
 import com.example.frontend.SharedDataTypes.Product;
+import com.example.frontend.SharedDataTypes.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,5 +25,11 @@ public class MethodRequester {
     public void receiveCategory(@RequestBody ListWrapper productList){
         Categories cat = new Categories();
         cat.getList(productList.getObject());
+    }
+
+    @PostMapping("/getUser")
+    public void getUser(@RequestBody User user){
+        Profile prof = new Profile();
+        prof.getProfile(user);
     }
 }

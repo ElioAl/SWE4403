@@ -1,4 +1,4 @@
-package com.example.frontend.SharedDataTypes;
+package unb.cb.customerservice.SharedDataTypes;
 
 import java.util.ArrayList;
 

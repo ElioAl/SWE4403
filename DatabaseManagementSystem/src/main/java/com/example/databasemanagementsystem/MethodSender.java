@@ -1,6 +1,7 @@
 package com.example.databasemanagementsystem;
 
 import SharedDataTypes.Product;
+import SharedDataTypes.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -40,5 +41,14 @@ public class MethodSender {
         HttpEntity<ListWrapper> entity = new HttpEntity<>(wrapper);
 
         ResponseEntity<String> reponse = restTemplate.postForEntity(url, entity, String.class);
+    }
+
+    public void sendUser(User user){
+        String url = "http://localhost:8083/receiveCustomer";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("User", user);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
     }
 }

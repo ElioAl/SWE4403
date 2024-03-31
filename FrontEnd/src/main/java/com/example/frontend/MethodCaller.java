@@ -29,6 +29,12 @@ public class MethodCaller {
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
     }
 
+    public void getUser(){
+        String url = "http://localhost:8083/getUser";
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
+    }
+
     public void removeFromOrder(Product product){
         String url = "http://localhost:8082/removeFromOrder";
         HttpEntity<Product> entity = new HttpEntity<>(product);
@@ -90,6 +96,16 @@ public class MethodCaller {
         catch(Exception e){
             System.out.println(e.getMessage());
         }
+    }
+
+    public void addUser(String username, String password){
+        String url = "http://localhost:8083/addCustomer?username={username}&password={password}";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("username", username);
+        params.put("password", password);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
     }
 
     public void getList(String category){

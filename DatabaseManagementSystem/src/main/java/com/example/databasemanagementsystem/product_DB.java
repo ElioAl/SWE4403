@@ -57,14 +57,16 @@ public class product_DB {
 
     //not done
     public static ArrayList<Product> getCategory(String category){
+        System.out.println("In method");
         ArrayList<Product> result = null;
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
         ResultSet dbResultSet= null;
         try{
-            dbStatement = dbConnection.prepareCall("{GetCategoryProducts(?)}");
-            dbStatement.setString("category", category);
+            dbStatement = dbConnection.prepareCall("{CALL getCategoryProducts(?)}");
+            dbStatement.setString(1, category);
             dbResultSet = dbStatement.executeQuery();
+            result = new ArrayList<>();
             while(dbResultSet.next()){
                 int id = dbResultSet.getInt("product_ID");
                 String name = dbResultSet.getString("product_name");

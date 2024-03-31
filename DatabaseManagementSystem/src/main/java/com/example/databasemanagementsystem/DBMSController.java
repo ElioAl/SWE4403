@@ -19,13 +19,22 @@ public class DBMSController {
 
     @PostMapping("/add_user")
     public void add_user (@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("type") String type) {
-        //db.add_user(username, password, type);
-        System.out.println("sup fuckers " + username + " " + password + " " + type);
+        System.out.println("Adding user in cont");
+        db.add_user(username, password, type);
+        System.out.println("In");
+        db.getUserForAuthority(username, password);
+        //System.out.println("sup fuckers " + username + " " + password + " " + type);
     }
 
     @PostMapping("/delete_user")
     public void delete_user(@RequestParam("username") String username, @RequestParam("password") String password) throws UnauthorizedAccessException {
         db.delete_user(username, password);
+    }
+
+    @PostMapping("getUser")
+    public void getUser(){
+        User user = DB_Connection.UserLoggedIn;
+        send.sendUser(user);
     }
 
     @PostMapping("/getUserForAuthority")
@@ -75,7 +84,7 @@ public class DBMSController {
     @PostMapping("/getCategory")
     public void getCategory(@RequestParam("category") String category){
         ArrayList<Product> toReturn = new ArrayList<>();
-        toReturn = db.getCategory(category);
+        send.sendCategory(db.getCategory(category));
 
     }
 

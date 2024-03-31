@@ -40,7 +40,6 @@ public class View {
                         cat = scan.nextLine().toLowerCase();
                         if(cat.equals("dairy") || cat.equals("meat")){
                             caller.getList(cat);
-
                         } else {
                             System.out.println("Invalid category");
                         }
@@ -48,8 +47,7 @@ public class View {
                     break;
 
                 case "profile":
-                    //return profile
-                    //System.out.println("");
+                    caller.getUser();
                     break;
 
                 case "exit":

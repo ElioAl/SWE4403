@@ -13,12 +13,13 @@ public class user_DB {
         CallableStatement dbStatement = null;
 
         try{
-            dbStatement = dbConnection.prepareCall("{CALL add_user(?,?)}");
+            System.out.println("Adding User");
+            dbStatement = dbConnection.prepareCall("{CALL add_user(?,?,?)}");
             dbStatement.setString("username", username);
             dbStatement.setString("password", password);
             dbStatement.setString("type", type);
             dbStatement.executeQuery();
-
+            System.out.println("user added");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
