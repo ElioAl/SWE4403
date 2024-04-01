@@ -45,10 +45,7 @@ public class MethodSender {
 
     public void sendUser(User user){
         String url = "http://localhost:8083/receiveCustomer";
-
-        Map<String, Object> params = new HashMap<>();
-        params.put("User", user);
-
-        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+        HttpEntity<User> entity = new HttpEntity<>(user);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
 }

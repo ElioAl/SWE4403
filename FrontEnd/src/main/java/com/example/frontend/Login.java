@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class Login {
     static int authority = 0;
+    MethodCaller name = new MethodCaller();
 
     static String username = "";
     static String password = "";
-    public static User login(){
-        MethodCaller name = new MethodCaller();
+    public void login(){
 
         System.out.println("-----Welcome to ...-----");
         Scanner scan = new Scanner(System.in);
@@ -44,13 +44,16 @@ public class Login {
         name.sendUserforAuthority(username, password);
 
         View view = new View();
+        name.getUser();
 
         if(authority == 1){
             view.CustomerView();
         } else {
             view.RetailerView();
         }
-        return userIn;
+
+
+
     }
 
     public static void setAuthority(int in){

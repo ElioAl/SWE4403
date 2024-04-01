@@ -10,9 +10,11 @@ import java.util.Scanner;
 @SpringBootApplication
 public class FrontEndApplication {
 	static User loggedIn;
+
 	public static void main(String[] args) {
 		SpringApplication.run(FrontEndApplication.class, args);
 		Scanner scan = new Scanner(System.in);
-		loggedIn = Login.login();
+		Login login = new Login();
+		login.login();
 	}
 }

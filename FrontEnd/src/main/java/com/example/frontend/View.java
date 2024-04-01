@@ -56,7 +56,8 @@ public class View {
 
                 case "logout":
                     //Logout, change userLoggedIn = null in DB
-                    Login.login();
+                    Login login = new Login();
+                    login.login();
 
                 default:
                     System.out.println("Unknown Command");

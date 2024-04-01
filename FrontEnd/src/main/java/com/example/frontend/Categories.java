@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.concurrent.SynchronousQueue;
 
 public class Categories {
+    MethodCaller MC = new MethodCaller();
     public void getList(ArrayList<Product> list) {
         System.out.println("----------------------------------------------------------------------------------------");
         System.out.printf("|\t%-20s %-20s %-20s %-20s|\n", "Product ID", "Product Name", "Product Cost", "Product Quantity");
@@ -25,6 +26,17 @@ public class Categories {
             if(input.equals("add product")){
                 System.out.print("Enter product ID: ");
                 int ID = scan.nextInt();
+                scan.nextLine();
+                for(Product temp : list){
+                    if (temp.getProduct_ID() == ID) {
+                        MC.addToOrder(temp);
+                        break;
+                    }
+                }
+
+
+
+
             } else if((input.equals("menu"))){
                 View view = new View();
                 view.CustomerView();

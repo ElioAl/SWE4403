@@ -1,9 +1,6 @@
 package unb.cb.customerservice;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import unb.cb.customerservice.SharedDataTypes.Product;
 import unb.cb.customerservice.SharedDataTypes.User;
 
@@ -16,7 +13,7 @@ public class CustomerController {
         customer.addCustomer(username, password);
     }
 
-    @PostMapping("/getUser")
+    @GetMapping("/getUser")
     public void getCustomer(){
         customer.getCustomer();
     }

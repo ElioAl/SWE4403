@@ -29,6 +29,8 @@ public class OrderCommandExecutor {
     public void addToOrder(Product item, int id){
         if(order == null){
             createOrder(id);
+            log = new ArrayList<String>();
+            queue = new ArrayList<Command>();
         }
 
         Command addToOrder = new AddToOrderCommand();

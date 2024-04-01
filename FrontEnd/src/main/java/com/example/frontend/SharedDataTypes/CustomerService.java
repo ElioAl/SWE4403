@@ -1,12 +1,8 @@
-package unb.cb.customerservice;
+package com.example.frontend.SharedDataTypes;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import unb.cb.customerservice.SharedDataTypes.Product;
-import unb.cb.customerservice.SharedDataTypes.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,8 +32,10 @@ public class CustomerService implements Customer {
 
     public void sendCustomer(User user){
         String url = "http://localhost:8086/getUser";
-        HttpEntity<User> entity = new HttpEntity<>(user);
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("Product", user);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
     }
 
     @Override

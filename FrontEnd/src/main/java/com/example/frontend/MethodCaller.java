@@ -1,5 +1,6 @@
 package com.example.frontend;
 
+import com.example.frontend.SharedDataTypes.CustomerService;
 import com.example.frontend.SharedDataTypes.ListWrapper;
 import com.example.frontend.SharedDataTypes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,7 @@ public class MethodCaller {
 
     public void getUser(){
         String url = "http://localhost:8083/getUser";
-
-        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
+        CustomerService customer = restTemplate.getForObject(url, CustomerService.class);
     }
 
     public void removeFromOrder(Product product){
