@@ -6,18 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBMSController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/order_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/order_DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/CompleteState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/ListWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/ListWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/PendingState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentService/src/main/java/com/example/paymentservice/PendingState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/PCSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/PCSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodRequester.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodRequester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +61,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.CustomerServiceApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "DBMS",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/jugel/OneDrive/Desktop/UNB/SWE4403/Project/SWE4403/CustomerService",

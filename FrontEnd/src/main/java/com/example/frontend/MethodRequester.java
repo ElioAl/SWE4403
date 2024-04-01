@@ -1,6 +1,7 @@
 package com.example.frontend;
 
 import com.example.frontend.SharedDataTypes.ListWrapper;
+import com.example.frontend.SharedDataTypes.Order;
 import com.example.frontend.SharedDataTypes.Product;
 import com.example.frontend.SharedDataTypes.User;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,5 +32,11 @@ public class MethodRequester {
     public void getUser(@RequestBody User user){
         Profile prof = new Profile();
         System.out.println("Welcome Back " + user.getUsername());
+    }
+
+    @PostMapping("/getOrderStatus")
+    public void getOrderStatus(@RequestParam("orderStatus") String orderStatus){
+        OrderView order = new OrderView();
+        order.getOrderStatus(orderStatus);
     }
 }

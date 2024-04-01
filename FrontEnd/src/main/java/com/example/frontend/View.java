@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class View {
 
     MethodCaller caller = new MethodCaller();
-
+    int order_ID = 0;
     public void CustomerView(){
+
         Scanner scan = new Scanner(System.in);
         while(true){
             System.out.println("Home\nEnter One of the Following Options" +
@@ -27,7 +28,7 @@ public class View {
                 case "order":
                     //get all orders for a user first
                     System.out.print("Enter your order ID: ");
-                    int order_ID = scan.nextInt();
+                    order_ID = scan.nextInt();
                     System.out.println();
                     System.out.println(order_ID);
                     //return order

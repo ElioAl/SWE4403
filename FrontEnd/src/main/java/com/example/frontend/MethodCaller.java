@@ -116,4 +116,13 @@ public class MethodCaller {
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
     }
+
+    public void getOrderStatus(int order_ID){
+        String url = "http://localhost:8082/getOrderStatus?order_ID={order_ID}";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("order_ID", order_ID);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+    }
 }
