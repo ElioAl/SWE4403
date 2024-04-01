@@ -18,7 +18,7 @@ public class CompleteState implements PaymentState{
 
     @Override
     public void proccess(Payment payment) {
-        String url = "http://localhost:8081/placeOrder?userId={userId}";
+        String url = "http://localhost:8081/placeOrder?user_ID={user_ID}";
         ListWrapper productListWrapper = new ListWrapper(payment.getItems());
         // populate productListWrapper with your products
         HttpHeaders headers = new HttpHeaders();
@@ -27,7 +27,7 @@ public class CompleteState implements PaymentState{
         HttpEntity<ListWrapper> entity = new HttpEntity<>(productListWrapper, headers);
 
         Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userId", payment.getUserId());
+        uriVariables.put("user_ID", payment.getUserId());
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
         System.out.println("Payment Complete");

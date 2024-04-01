@@ -85,7 +85,6 @@ public class DBMSController {
     public void getCategory(@RequestParam("category") String category){
         ArrayList<Product> toReturn = new ArrayList<>();
         send.sendCategory(db.getCategory(category));
-
     }
 
     @PostMapping("/setProductQuantity")
@@ -94,8 +93,8 @@ public class DBMSController {
     }
 
     @PostMapping("/placeOrder")
-    public void placeOrder(@RequestParam("order_ID") int order_ID, @RequestBody ListWrapper order){
-        db.placeOrder(order_ID, order.getObject());
+    public void placeOrder(@RequestParam("user_ID") int user_ID, @RequestBody ListWrapper order){
+        db.placeOrder(user_ID, order.getObject());
     }
 
     @PostMapping("/cancelOrder")

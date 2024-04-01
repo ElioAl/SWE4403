@@ -61,6 +61,14 @@ public class DBConnection {
         return deSerialize(productPacket);
     }
 
+    public void getCategory(String category) {
+        String url = "http://localhost:8081/getCategory?category={category}";
+        Map<String, Object> params = new HashMap<>();
+        params.put("category", category);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+    }
+
     private ProductPacket serialize (Product toSerialize) {
         return new ProductPacket(toSerialize.getProduct_ID(), toSerialize.getName(), toSerialize.getCost(), toSerialize.getQuantity(), toSerialize.getCategory());
     }
@@ -76,4 +84,5 @@ public class DBConnection {
         }
         return result;
     }
+
 }

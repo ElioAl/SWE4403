@@ -14,8 +14,7 @@ import java.util.Map;
 @Service
 public class PlaceOrderCommand extends Command{
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplate = new RestTemplate();
     private int cardNumber;
     private double amountInCard;
 
@@ -26,19 +25,21 @@ public class PlaceOrderCommand extends Command{
 
     @Override
     public void execute() {
-        String url = "http://localhost:8083/pay?userId={userId}&cardNumber={cardNumber}&amountInCard={amountInCard}";
-        ListWrapper productListWrapper = new ListWrapper(Command.getOrder().getItems());
+        String url = "http://localhost:8085/pay?userId={userId}&cardNumber={cardNumber}&amountInCard={amountInCard}";
         // populate productListWrapper with your products
+        ListWrapper wrapper = new ListWrapper(Command.getOrder().getItems());
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<ListWrapper> entity = new HttpEntity<>(productListWrapper, headers);
+        HttpEntity<ListWrapper> entity = new HttpEntity<>(wrapper);
+
 
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("userId", Command.getOrder().getUserId());
         uriVariables.put("cardNumber", cardNumber);
         uriVariables.put("amountInCard", amountInCard);
-
+        
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
     }
 

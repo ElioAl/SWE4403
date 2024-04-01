@@ -109,7 +109,7 @@ public class MethodCaller {
     }
 
     public void getList(String category){
-        String url = "http://localhost:8081/getCategory?category={category}";
+        String url = "http://localhost:8080/getCategory?category={category}";
 
         Map<String, Object> params = new HashMap<>();
         params.put("category", category);
