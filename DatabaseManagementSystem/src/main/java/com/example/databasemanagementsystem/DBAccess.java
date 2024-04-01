@@ -107,4 +107,9 @@ public class DBAccess implements Database{
             throw new UnauthorizedAccessException("Unauthorized access to cancel order");
         }
     }
+
+    @Override
+    public void getOrderStatus(int order_ID) {
+
+    }
 }

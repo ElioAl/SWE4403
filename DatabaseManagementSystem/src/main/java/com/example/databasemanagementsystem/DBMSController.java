@@ -102,6 +102,11 @@ public class DBMSController {
         db.cancelOrder(order_ID);
     }
 
+    @PostMapping("/getOrderStatus")
+    public void getOrderStatus(@RequestParam("order_ID") int order_ID){
+        db.getOrderStatus(order_ID);
+    }
+
     private ProductPacket serialize (Product toSerialize) {
         return new ProductPacket(toSerialize.getProduct_ID(), toSerialize.getName(), toSerialize.getCost(), toSerialize.getQuantity(), toSerialize.getCategory());
     }

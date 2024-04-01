@@ -48,4 +48,11 @@ public class MethodSender {
         HttpEntity<User> entity = new HttpEntity<>(user);
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
+
+    public void sendStatus(String status){
+        String url = "http://localhost:8082/sendStatus?status={status}";
+        Map<String, Object> params = new HashMap<>();
+        params.put("status", status);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+    }
 }

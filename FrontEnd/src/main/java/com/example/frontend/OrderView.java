@@ -15,6 +15,7 @@ public class OrderView {
             String input = scan.nextLine();
             if(input.equals("cancel")){
                 caller.cancelOrder(view.order_ID);
+                view.CustomerView();
             } else if(input.equals("menu")){
                 view.CustomerView();
             } else {

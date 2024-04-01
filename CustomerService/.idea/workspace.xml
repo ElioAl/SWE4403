@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBMSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/MethodSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/MethodSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/order_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/order_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/OrderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/OrderView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.CustomerServiceApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "DBMS",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/jugel/OneDrive/Desktop/UNB/SWE4403/Project/SWE4403/CustomerService",

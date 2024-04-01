@@ -36,10 +36,10 @@ public class order_DB {
         return result;
     }
 
-    public static Order_Tracking getOrderStatus(int user_ID){
+    public static String getOrderStatus(int user_ID){
         Connection dbConnection = DB_Connection.Connect();
         CallableStatement dbStatement = null;
-        Order_Tracking result = null;
+        String result = null;
         ResultSet dbResultSet = null;
 
         try{
@@ -48,7 +48,7 @@ public class order_DB {
             dbResultSet = dbStatement.executeQuery();
             if(dbResultSet.next()) {
                 String res = dbResultSet.getString("status");
-                result = Order_Tracking.valueOf(res);
+                result = Order_Tracking.valueOf(res).toString();
             }
 
         }
