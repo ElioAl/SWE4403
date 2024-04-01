@@ -93,4 +93,20 @@ public class OrderCommandExecutor {
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
 
     }
+
+    public void getStatus(int order_ID) {
+        String url = "http://localhost:8081/getOrderStatus?order_ID={order_ID}";
+        Map<String, Object> params = new HashMap<>();
+        params.put("order_ID", order_ID);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+    }
+
+    public void sendStatus(String status) {
+        String url = "http://localhost:8086/getOrderStatus?status={status}";
+        Map<String, Object> params = new HashMap<>();
+        params.put("status", status);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+    }
 }

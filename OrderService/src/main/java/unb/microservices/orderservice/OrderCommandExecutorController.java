@@ -33,6 +33,18 @@ public class OrderCommandExecutorController {
         executor.cancelOrder(orderId);
     }
 
+    @PostMapping("/getOrderStatus")
+    public void getOrderStatus(@RequestParam("order_ID") int order_ID){
+        System.out.println("Getting order status");
+        executor.getStatus(order_ID);
+    }
+
+    @PostMapping("/sendStatus")
+    public void sendStatus(@RequestParam("status") String status){
+        System.out.println("Getting order status");
+        executor.sendStatus(status);
+    }
+
     @PostMapping("/undo")
     public void undo(){
         System.out.println("undo");
