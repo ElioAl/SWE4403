@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 @RestController
 public class PCSController {
@@ -18,6 +19,11 @@ public class PCSController {
         return "Hello World";
     }
 
+
+    @PostMapping("/getCategory")
+    public void getCategory(@RequestParam("category") String category){
+        DBConnection.getDBInstance().getCategory(category);
+    }
 
     @GetMapping("/easteregg")
     public String easterEgg() {

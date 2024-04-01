@@ -92,10 +92,10 @@ public class order_DB {
         CallableStatement dbStatement = null;
 
         try{
-            dbStatement = dbConnection.prepareCall("{CALL addOrder(?)}");
-            dbStatement.setInt("order_ID", order_ID);
-            dbStatement.setInt("product_ID", toInsert.getProduct_ID());
+            dbStatement = dbConnection.prepareCall("{CALL addToOrder(?,?,?)}");
             dbStatement.setInt("user_ID", user_id);
+            dbStatement.setInt("product_ID", toInsert.getProduct_ID());
+            dbStatement.setInt("order_ID", order_ID);
             dbStatement.executeQuery();
 
         }

@@ -11,9 +11,11 @@ public class PendingState implements PaymentState{
             e.printStackTrace();
         }
         if(payment.getAmountInCard() >= payment.getAmount()){
+            System.out.println("Payment Accepted");
             payment.changeState(new CompleteState());
             payment.proccess();
         }else {
+            System.out.println("Payment Declined");
             payment.changeState(new FailedState());
             payment.proccess();
         }

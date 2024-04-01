@@ -6,10 +6,10 @@ public class Payment {
     private int userId;
     private ArrayList<Product> items;
     private int cardNumber;
-    private int amountInCard;
+    private double amountInCard;
     private PaymentState state;
 
-    public Payment(int userId, ArrayList<Product> items,int cardNumber, int amountInCard) {
+    public Payment(int userId, ArrayList<Product> items,int cardNumber, double amountInCard) {
         this.userId = userId;
         this.items = items;
         this.cardNumber = cardNumber;
@@ -25,7 +25,7 @@ public class Payment {
         state.proccess(this);
     }
 
-    public int getAmountInCard() {
+    public double getAmountInCard() {
         return amountInCard;
     }
 
