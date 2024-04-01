@@ -34,10 +34,12 @@ public class user_DB {
         CallableStatement dbStatement = null;
 
         try {
+            System.out.println("Deleting User");
             dbStatement = dbConnection.prepareCall("{CALL delete_user(?,?)}");
             dbStatement.setString("username", username);
             dbStatement.setString("password", password);
             dbStatement.executeQuery();
+            System.out.println("User Deleted");
         } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {
@@ -51,6 +53,7 @@ public class user_DB {
         ResultSet dbResultSet = null;
         User result = null;
         try{
+            System.out.println("Retrieving User");
             dbStatement = dbConnection.prepareCall("{CALL get_user(?)}");
             dbStatement.setInt("user_ID", user_ID);
             dbResultSet = dbStatement.executeQuery();
@@ -60,6 +63,7 @@ public class user_DB {
                 String type = dbResultSet.getString("type");
                 result = new User(user_ID, username, password, type);
             }
+            System.out.println("User Retrieved");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -78,6 +82,7 @@ public class user_DB {
         ResultSet dbResultSet = null;
         User result = null;
         try{
+            System.out.println("Attempting Login");
             dbStatement = dbConnection.prepareCall("{CALL login(?,?)}");
             dbStatement.setString("username", username);
             dbStatement.setString("password", password);
@@ -87,6 +92,7 @@ public class user_DB {
                 String type = dbResultSet.getString("type");
                 result = new User(user_ID, username, password, type);
             }
+            System.out.println("Login Successful");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -98,28 +104,4 @@ public class user_DB {
         }
         return result;
     }
-
-    public static String getAuthority(int user_id){
-        Connection dbConnection = DB_Connection.Connect();
-        CallableStatement dbStatement = null;
-        ResultSet dbResultSet = null;
-        String res = "";
-        try{
-            dbStatement = dbConnection.prepareCall("{CALL get_user_authority(?)}");
-            dbStatement.setInt("user_ID", user_id);
-            dbResultSet = dbStatement.executeQuery();
-            if(dbResultSet.next()){
-                res = dbResultSet.getString("type");
-            }
-        }
-        catch(SQLException e){
-            DB_Connection.getSQLException(e);
-        } finally {
-            DB_Connection.Closing(dbStatement, dbConnection);
-            DB_Connection.ClosingResultSet(dbResultSet);
-        }
-        return res;
-    }
-
-
 }

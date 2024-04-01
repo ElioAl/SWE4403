@@ -1,6 +1,5 @@
 package com.example.databasemanagementsystem;
 
-import SharedDataTypes.Order;
 import SharedDataTypes.Order_Tracking;
 import SharedDataTypes.Product;
 
@@ -21,13 +20,14 @@ public class order_DB {
         ResultSet dbResultSet = null;
 
         try{
+            System.out.println("Retrieving a user's order");
             dbStatement = dbConnection.prepareCall("{CALL getUserOrder(?)}");
             dbStatement.setInt("order_ID", order_ID);
             dbResultSet = dbStatement.executeQuery();
             if(dbResultSet.next()) {
                 result = dbResultSet.getInt("user_ID");
             }
-
+            System.out.println("User's Order Retrieved");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -46,6 +46,7 @@ public class order_DB {
         ResultSet dbResultSet = null;
 
         try{
+            System.out.println("Retrieving all user's Orders");
             dbStatement = dbConnection.prepareCall("{CALL getTrackingStatus(?)}");
             dbStatement.setInt("order_ID", user_ID);
             dbResultSet = dbStatement.executeQuery();
@@ -53,7 +54,7 @@ public class order_DB {
                 String res = dbResultSet.getString("status");
                 result = Order_Tracking.valueOf(res).toString();
             }
-
+            System.out.println("List Retrieved");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -73,13 +74,14 @@ public class order_DB {
         ResultSet dbResultSet = null;
 
         try{
+            System.out.println("Creating a new Order");
             dbStatement = dbConnection.prepareCall("{CALL addOrder(?)}");
             dbStatement.setInt("user_ID", user_id);
             dbResultSet = dbStatement.executeQuery();
             if(dbResultSet.next()) {
                 result = dbResultSet.getInt(1);
             }
-
+            System.out.println("New Order Created");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -96,12 +98,13 @@ public class order_DB {
         CallableStatement dbStatement = null;
 
         try{
+            System.out.println("Placing Order");
             dbStatement = dbConnection.prepareCall("{CALL addToOrder(?,?,?)}");
             dbStatement.setInt("user_ID", user_id);
             dbStatement.setInt("product_ID", toInsert.getProduct_ID());
             dbStatement.setInt("order_ID", order_ID);
             dbStatement.executeQuery();
-
+            System.out.println("Order Placed");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -116,10 +119,12 @@ public class order_DB {
         CallableStatement dbStatement = null;
 
         try{
+            System.out.println("Canceling Order");
             dbStatement = dbConection.prepareCall("{CALL cancelOrder(?,?)}");
             dbStatement.setInt("order_ID", order_ID);
             dbStatement.setInt("user_ID", DB_Connection.UserLoggedIn.getUser_ID());
             dbStatement.executeQuery();
+            System.out.println("Order Canceled");
         }
         catch (SQLException e){
             DB_Connection.getSQLException(e);
@@ -135,6 +140,7 @@ public class order_DB {
         ResultSet dbResultSet = null;
 
         try{
+            System.out.println("Retrieving all user's orders");
             dbStatement = dbConection.prepareCall("{CALL getUserOrders(?)}");
             dbStatement.setInt("ID", DB_Connection.UserLoggedIn.getUser_ID());
             dbResultSet = dbStatement.executeQuery();
@@ -149,6 +155,7 @@ public class order_DB {
                 list.put("user_ID", user_ID);
                 result.add(list);
             }
+            System.out.println("Orders Retrieved");
         }
         catch (SQLException e){
             DB_Connection.getSQLException(e);

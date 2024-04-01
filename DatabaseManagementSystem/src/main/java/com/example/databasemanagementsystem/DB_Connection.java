@@ -1,13 +1,9 @@
 package com.example.databasemanagementsystem;
 
 import SharedDataTypes.User;
-import org.apache.catalina.startup.UserConfig;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Properties;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -86,20 +82,4 @@ public class DB_Connection {
     public static void setAuthority(String username, String password){
         UserLoggedIn = user_DB.login(username, password);
     }
-
-//    public static void main(String[] args){
-//        //Connection dbConnection = Connect();
-//        System.out.println("Connected");
-//        DBAccess dbAccess = new DBAccess();
-//        dbAccess.add_user("TEst", "Testing");
-//        ArrayList<String> res = dbAccess.get_User(2);
-//        for (String re : res) {
-//            System.out.println(re);
-//        }
-//        dbAccess.delete_user("TEst", "Testing");
-//        ArrayList<String> resu = dbAccess.get_User(2);
-//        for (String re : resu) {
-//            System.out.println(re);
-//        }
-//    }
 }

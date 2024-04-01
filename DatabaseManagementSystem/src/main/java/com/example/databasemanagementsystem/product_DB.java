@@ -14,12 +14,14 @@ public class product_DB {
         CallableStatement dbStatement = null;
 
         try {
+            System.out.println("Adding Product");
             dbStatement = dbConnection.prepareCall("{CALL addProduct(?,?,?,?)}");
             dbStatement.setString("product_name", product_name);
             dbStatement.setDouble("product_price", product_price);
             dbStatement.setInt("product_quantity", quantity);
             dbStatement.setString("product_category", category);
             dbStatement.executeQuery();
+            System.out.println("Product Added");
         } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {
@@ -34,6 +36,7 @@ public class product_DB {
         Product result = null;
 
         try{
+            System.out.println("Retrieving Product");
             dbStatement = dbConnection.prepareCall("{CALL get_product(?)}");
             dbStatement.setInt("product_ID", product_ID);
             dbResultSet = dbStatement.executeQuery();
@@ -44,6 +47,7 @@ public class product_DB {
                 String category = dbResultSet.getString("product_category");
                 result = new Product(product_ID, name, cost, quantity, category);
             }
+            System.out.println("Product Retrieved");
         } catch(SQLException e){
             DB_Connection.getSQLException(e);
         }
@@ -63,6 +67,7 @@ public class product_DB {
         CallableStatement dbStatement = null;
         ResultSet dbResultSet= null;
         try{
+            System.out.println("Retrieving a list of products in " + category);
             dbStatement = dbConnection.prepareCall("{CALL getCategoryProducts(?)}");
             dbStatement.setString(1, category);
             dbResultSet = dbStatement.executeQuery();
@@ -76,6 +81,7 @@ public class product_DB {
                 Product temp = new Product(id, name, cost, quantity, cat);
                 result.add(temp);
             }
+            System.out.println("List retrieved");
         }
         catch(SQLException e){
             DB_Connection.getSQLException(e);
@@ -91,10 +97,12 @@ public class product_DB {
         CallableStatement dbStatement = null;
 
         try {
+            System.out.println("Setting Product Quantity");
             dbStatement = dbConnection.prepareCall("{CALL update_quantity(?,?)}");
             dbStatement.setInt("product_ID", product_ID);
             dbStatement.setInt("product_quantity", quantity);
             dbStatement.executeQuery();
+            System.out.println("Product Quantity Updated");
         } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {
@@ -107,6 +115,7 @@ public class product_DB {
         CallableStatement dbStatement = null;
 
         try {
+            System.out.println("Updating Product");
             dbStatement = dbConnection.prepareCall("{CALL updateProduct(?,?,?,?,?)}");
             dbStatement.setInt("product_ID", toUpdate.getProduct_ID());
             dbStatement.setString("product_name", toUpdate.getName());
@@ -114,6 +123,7 @@ public class product_DB {
             dbStatement.setInt("product_quantity", toUpdate.getQuantity());
             dbStatement.setString("product_category", toUpdate.getCategory());
             dbStatement.executeQuery();
+            System.out.println("Product Updated");
         } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {
@@ -127,6 +137,7 @@ public class product_DB {
         Product result = null;
         ResultSet dbResultSet = null;
         try {
+            System.out.println("Deleting Product");
             dbStatement = dbConnection.prepareCall("{CALL deleteProduct(?)}");
             dbStatement.setInt("ID", product_ID);
             dbResultSet = dbStatement.executeQuery();
@@ -138,6 +149,7 @@ public class product_DB {
                 String category = dbResultSet.getString("product_category");
                 result = new Product(id, name, cost, quantity, category);
             }
+            System.out.println("Product Deleted");
         } catch (SQLException e) {
             DB_Connection.getSQLException(e);
         } finally {

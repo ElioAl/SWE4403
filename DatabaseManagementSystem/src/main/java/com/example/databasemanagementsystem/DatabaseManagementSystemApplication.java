@@ -14,11 +14,6 @@ public class DatabaseManagementSystemApplication {
         try {
             SpringApplication.run(DatabaseManagementSystemApplication.class, args);
             System.out.println("Starting Database Management System");
-            //DB_Connection.main(null);
-            System.out.println("Testing Retrieve Order");
-            DB_Connection.UserLoggedIn = new User(1, "Elio", "Pass", "customer");
-            DBAccess db = new DBAccess();
-            ArrayList<Order> temp = db.getUserOrder();
         }
         catch(Exception e){
             System.out.println("Error starting Database Management System");

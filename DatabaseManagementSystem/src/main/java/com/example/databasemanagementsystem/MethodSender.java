@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 public class MethodSender {
 
-    private RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate = new RestTemplate();
 
     public void sendAuthority(int authority){
         String url = "http://localhost:8086/getAuthority?in={in}";
@@ -41,7 +41,7 @@ public class MethodSender {
 
         HttpEntity<ListWrapper> entity = new HttpEntity<>(wrapper);
 
-        ResponseEntity<String> reponse = restTemplate.postForEntity(url, entity, String.class);
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
 
     public void sendUser(User user){

@@ -1,6 +1,5 @@
 package com.example.databasemanagementsystem;
 
-import SharedDataTypes.Order;
 import SharedDataTypes.Product;
 import SharedDataTypes.ProductPacket;
 import SharedDataTypes.User;
