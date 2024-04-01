@@ -75,7 +75,7 @@ public class MethodCaller {
             ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
         }
         catch(HttpServerErrorException e){
-            System.out.println("No orders Placed Yet");
+            System.out.println("No Items in cart :(");
         }
     }
 

@@ -19,11 +19,15 @@ public class OrderCommandExecutor {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    private Order order;
+    private static Order order;
 
     public void createOrder(int id){
         order = new Order(id, new ArrayList<Product>());
         Command.setCurrentOrder(order);
+    }
+
+    public void setOrder(Order orderIn) {
+        order = orderIn;
     }
 
     public void addToOrder(Product item, int id){
