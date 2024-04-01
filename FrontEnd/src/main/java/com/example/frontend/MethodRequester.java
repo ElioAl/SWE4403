@@ -30,6 +30,6 @@ public class MethodRequester {
     @PostMapping("/getUser")
     public void getUser(@RequestBody User user){
         Profile prof = new Profile();
-        prof.getProfile(user);
+        System.out.println("Welcome Back " + user.getUsername());
     }
 }

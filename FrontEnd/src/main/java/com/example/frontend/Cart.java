@@ -13,9 +13,12 @@ public class Cart {
     public void displayCart(ArrayList<Product> list){
         this.cart = list;
         int counter = 1;
-        System.out.println("Index\tItem Name : Item Cost");
+        System.out.println("--------------------------------\n");
+        System.out.printf("|\t%-20s %s: %-20s\n", "Index", "Item Name", "Item Cost");
+        System.out.println("--------------------------------\n");
         for (Product item: list) {
-            System.out.println(counter + "\t" + item.getName() + " : " + item.getCost());
+            System.out.printf("|\t%-20s %s: %-20s\n", counter, item.getName(), item.getCost());
+            counter++;
         }
 
         Cart cart = new Cart();

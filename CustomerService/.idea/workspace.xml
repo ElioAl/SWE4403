@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/SharedDataTypes/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/SharedDataTypes/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unb/cb/customerservice/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/unb/cb/customerservice/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unb/cb/customerservice/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/unb/cb/customerservice/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/MethodSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/MethodSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Cart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Categories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/FrontEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/FrontEndApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodRequester.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodRequester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,31 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.Build CustomerService.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.CustomerServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Product-Catalog-Service&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jugel/OneDrive/Desktop/UNB/SWE4403/Project/SWE4403/CustomerService&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;1730fdf05994341cddc79b51aebdc83c&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.Build CustomerService.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.CustomerServiceApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "DBMS",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/jugel/OneDrive/Desktop/UNB/SWE4403/Project/SWE4403/CustomerService",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+    "spring.configuration.checksum": "1730fdf05994341cddc79b51aebdc83c",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\luvid\IdeaProjects\4403\SWE4403\CustomerService\src\main\java\unb" />

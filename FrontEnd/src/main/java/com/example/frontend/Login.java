@@ -24,7 +24,6 @@ public class Login {
                 username = scan.nextLine();
                 System.out.print("Enter desired password: ");
                 password = scan.nextLine();
-                System.out.println(username + " " + password);
                 name.addUser(username, password);
                 loggedIn = true;
             } else if (in.equals("Login")) {
@@ -32,7 +31,6 @@ public class Login {
                 username = scan.nextLine();
                 System.out.print("password: ");
                 password = scan.nextLine();
-                System.out.println(username + " " + password);
                 //check if user is valid + return User
                 loggedIn = true;
             } else {

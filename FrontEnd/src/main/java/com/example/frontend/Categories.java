@@ -34,9 +34,6 @@ public class Categories {
                     }
                 }
 
-
-
-
             } else if((input.equals("menu"))){
                 View view = new View();
                 view.CustomerView();

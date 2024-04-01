@@ -9,12 +9,15 @@ public class View {
     public void CustomerView(){
         Scanner scan = new Scanner(System.in);
         while(true){
-            System.out.println("Home\nEnter One of the Following Options\nCart - to view your cart" +
-                    "\nOrder - to view an order status" +
-                    "\nCategories - to view all categories" +
-                    "\nProfile - to view your profile" +
-                    "\nLogout - to Logout of the application" +
-                    "\nExit - To Exit the application");
+            System.out.println("Home\nEnter One of the Following Options" +
+                    "\n---------------------------------------------" +
+                    "\nCart       -     to view your cart" +
+                    "\nOrder      -     to view an order status" +
+                    "\nCategories -     to view all categories" +
+                    "\nProfile    -     to view your Profile" +
+                    "\nLogout     -     to Logout of the application" +
+                    "\nExit       -     to Exit the application" +
+                    "\n---------------------------------------------");
             String in = scan.nextLine().toLowerCase();
             switch(in){
                 case "cart":
