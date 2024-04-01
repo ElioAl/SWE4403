@@ -10,6 +10,7 @@ public class Cart {
 
     ArrayList<Product> cart;
     MethodCaller caller = new MethodCaller();
+    View view = new View();
     public void displayCart(ArrayList<Product> list){
         this.cart = list;
         int counter = 1;
@@ -22,19 +23,20 @@ public class Cart {
         }
 
         Cart cart = new Cart();
-        System.out.println("In cart");
-        System.out.println("To Remove a Product from the List, Enter \"Delete\"");
-        System.out.println("To Change the Quantity of a Product, Enter \"Change Quantity\"");
-        System.out.println("To Proceed to Checkout, Enter \"Checkout\"");
-        System.out.println("To return to Menu, Enter \"Menu\"");
         Scanner scan = new Scanner(System.in);
         String input = "";
-        while(!input.equals("menu")){
+        while(true){
+            System.out.println("In cart");
+            System.out.println("To Remove a Product from the List, Enter \"Delete\"");
+            System.out.println("To Change the Quantity of a Product, Enter \"Change Quantity\"");
+            System.out.println("To Proceed to Checkout, Enter \"Checkout\"");
+            System.out.println("To return to Menu, Enter \"Menu\"");
             input = (scan.nextLine()).toLowerCase();
 
             switch (input) {
                 case "delete" -> deleteProduct();
                 case "checkout" -> cart.placeOrder();
+                case "menu" -> view.CustomerView();
                 default -> System.out.println("Invalid Command");
             }
         }

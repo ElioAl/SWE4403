@@ -110,6 +110,8 @@ public class DBAccess implements Database{
 
     @Override
     public void getOrderStatus(int order_ID) {
-
+        String status = order_DB.getOrderStatus(order_ID);
+        MethodSender sender = new MethodSender();
+        sender.sendStatus(status);
     }
 }

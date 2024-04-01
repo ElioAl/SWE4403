@@ -31,11 +31,13 @@ public class MethodRequester {
     @PostMapping("/getUser")
     public void getUser(@RequestBody User user){
         Profile prof = new Profile();
+        FrontEndApplication.loggedIn = user;
         System.out.println("Welcome Back " + user.getUsername());
+
     }
 
     @PostMapping("/getOrderStatus")
-    public void getOrderStatus(@RequestParam("orderStatus") String orderStatus){
+    public void getOrderStatus(@RequestParam("status") String orderStatus){
         OrderView order = new OrderView();
         order.getOrderStatus(orderStatus);
     }

@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/order_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/order_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Categories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodRequester.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodRequester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/OrderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/OrderView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +111,7 @@
       <workItem from="1711839625751" duration="746000" />
       <workItem from="1711895241804" duration="302000" />
       <workItem from="1711923065293" duration="3568000" />
-      <workItem from="1711927440847" duration="3312000" />
+      <workItem from="1711927440847" duration="5281000" />
     </task>
     <servers />
   </component>

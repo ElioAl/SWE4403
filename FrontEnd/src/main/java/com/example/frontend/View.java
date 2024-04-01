@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class View {
 
     MethodCaller caller = new MethodCaller();
-    int order_ID = 0;
+    static int order_ID;
     public void CustomerView(){
 
         Scanner scan = new Scanner(System.in);
@@ -29,9 +29,9 @@ public class View {
                     //get all orders for a user first
                     System.out.print("Enter your order ID: ");
                     order_ID = scan.nextInt();
-                    System.out.println();
-                    System.out.println(order_ID);
-                    //return order
+                    scan.nextLine();
+                    System.out.println("order ID: (I'm in view line 34) " + order_ID);
+                    caller.getOrderStatus(order_ID);
                     break;
 
                 case "categories":
@@ -51,7 +51,8 @@ public class View {
                     break;
 
                 case "profile":
-                    caller.getUser();
+                    Profile profile = new Profile();
+                    profile.getProfile(FrontEndApplication.loggedIn);
                     break;
 
                 case "exit":

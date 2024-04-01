@@ -8,13 +8,13 @@ public class OrderView {
     Scanner scan = new Scanner(System.in);
     public void getOrderStatus(String status){
         System.out.println("----------------");
-        System.out.println("Order number: " + view.order_ID);
+        System.out.println("Order number: " + View.order_ID);
         System.out.println("Order Status: " + status);
         while(true){
             System.out.println("To cancel an order, Enter \"cancel\" or to return to Menu, enter \"Menu\"");
             String input = scan.nextLine();
             if(input.equals("cancel")){
-                caller.cancelOrder(view.order_ID);
+                caller.cancelOrder(View.order_ID);
                 view.CustomerView();
             } else if(input.equals("menu")){
                 view.CustomerView();

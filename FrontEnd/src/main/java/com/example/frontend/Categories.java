@@ -18,10 +18,11 @@ public class Categories {
         }
         System.out.println("----------------------------------------------------------------------------------------");
 
-        System.out.println("To Add a Product to your Cart, Enter \"add product\" to add a Product, or Enter \"Menu\" to return to Menu");
+
         String input = "";
         Scanner scan = new Scanner(System.in);
         while(true){
+            System.out.println("To Add a Product to your Cart, Enter \"add product\" to add a Product, or Enter \"Menu\" to return to Menu");
             input = scan.nextLine().toLowerCase();
             if(input.equals("add product")){
                 System.out.print("Enter product ID: ");
@@ -30,6 +31,7 @@ public class Categories {
                 for(Product temp : list){
                     if (temp.getProduct_ID() == ID) {
                         MC.addToOrder(temp);
+                        System.out.println("Added to cart");
                         break;
                     }
                 }
@@ -40,6 +42,7 @@ public class Categories {
             } else {
                 System.out.println("Incorrect Command");
             }
+
         }
 
     }

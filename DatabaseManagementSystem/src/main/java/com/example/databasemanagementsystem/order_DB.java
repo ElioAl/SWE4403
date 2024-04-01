@@ -43,8 +43,8 @@ public class order_DB {
         ResultSet dbResultSet = null;
 
         try{
-            dbStatement = dbConnection.prepareCall("{CALL getIrder(?)}");
-            dbStatement.setInt("user_ID", user_ID);
+            dbStatement = dbConnection.prepareCall("{CALL getTrackingStatus(?)}");
+            dbStatement.setInt("order_ID", user_ID);
             dbResultSet = dbStatement.executeQuery();
             if(dbResultSet.next()) {
                 String res = dbResultSet.getString("status");
@@ -59,6 +59,7 @@ public class order_DB {
             DB_Connection.Closing(dbStatement, dbConnection);
             DB_Connection.ClosingResultSet(dbResultSet);
         }
+        System.out.println(result);
         return result;
     }
 
