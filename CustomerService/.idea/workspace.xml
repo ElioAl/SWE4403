@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/PlaceOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OrderService/src/main/java/unb/microservices/orderservice/OrderCommandExecutorController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
