@@ -28,7 +28,6 @@ public class Cart {
         while(true){
             System.out.println("In cart");
             System.out.println("To Remove a Product from the List, Enter \"Delete\"");
-            System.out.println("To Change the Quantity of a Product, Enter \"Change Quantity\"");
             System.out.println("To Proceed to Checkout, Enter \"Checkout\"");
             System.out.println("To return to Menu, Enter \"Menu\"");
             input = (scan.nextLine()).toLowerCase();
@@ -59,8 +58,7 @@ public class Cart {
         System.out.println("Amount on card");
         double amount = scan.nextDouble();
         caller.placeOrder(cardNumber, amount);
-        //Get confirmation
+        System.out.println("Order Placed");
     }
-    
     
 }

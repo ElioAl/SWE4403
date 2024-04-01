@@ -3,6 +3,8 @@ package com.example.databasemanagementsystem;
 import SharedDataTypes.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DBAccess implements Database{
 
@@ -58,6 +60,19 @@ public class DBAccess implements Database{
     @Override
     public void update_product(Product toUpdate) throws UnauthorizedAccessException {
         if(DB_Connection.getAuthority("retailer") == 200) {
+            Product test = product_DB.get_product(toUpdate.getProduct_ID());
+            if(toUpdate.getName().equals("X")){
+                toUpdate.setName(test.getName());
+            }
+            if(toUpdate.getCost() == -1){
+                toUpdate.setCost(test.getCost());
+            }
+            if(toUpdate.getCategory().equals("X")){
+                toUpdate.setCategory(test.getCategory());
+            }
+            if(toUpdate.getQuantity() == -1){
+                toUpdate.setQuantity(test.getQuantity());
+            }
             product_DB.updateProduct(toUpdate);
         } else {
             throw new UnauthorizedAccessException("Unauthorized access to update product");
@@ -98,11 +113,16 @@ public class DBAccess implements Database{
     }
 
     @Override
-    public boolean cancelOrder(int order_ID) throws UnauthorizedAccessException {
+    public void cancelOrder(int order_ID) throws UnauthorizedAccessException, StatusChangingException {
         int user = order_DB.getOrderUser(order_ID);
         if (user == DB_Connection.UserLoggedIn.getUser_ID()) {
-            String toCheck = order_DB.getOrderStatus(order_ID).toString();
-            return toCheck.equals("NotPlaced") || toCheck.equals("Processing");
+            String toCheck = order_DB.getOrderStatus(order_ID);
+            System.out.println("In cancel Order");
+            if(toCheck.equals("NotPlaced") || toCheck.equals("Processing")){
+                order_DB.cancelOrder(order_ID);
+            } else {
+                throw new StatusChangingException("Unable to Change Status, Order is already " + toCheck);
+            }
         } else {
             throw new UnauthorizedAccessException("Unauthorized access to cancel order");
         }
@@ -112,6 +132,35 @@ public class DBAccess implements Database{
     public void getOrderStatus(int order_ID) {
         String status = order_DB.getOrderStatus(order_ID);
         MethodSender sender = new MethodSender();
+        System.out.println("Sending status");
         sender.sendStatus(status);
     }
+
+    @Override
+    public ArrayList<Order> getUserOrder() {
+        ArrayList<Map<String, Object>> result = order_DB.getUserOrders();
+        ArrayList<Order> exit = new ArrayList<>();
+        Map<Integer, ArrayList<String>> orderProductsMap = new HashMap<>();
+
+        for (Map<String, Object> row : result) {
+            int orderID = (int) row.get("ID");
+            String productName = (String) row.get("name");
+
+            if (!orderProductsMap.containsKey(orderID)) {
+                orderProductsMap.put(orderID, new ArrayList<>());
+            }
+
+            orderProductsMap.get(orderID).add(productName);
+        }
+
+        for (Map.Entry<Integer, ArrayList<String>> entry : orderProductsMap.entrySet()) {
+            int orderID = entry.getKey();
+            String[] productNames = entry.getValue().toArray(new String[0]);
+            Order order = new Order(orderID, productNames, DB_Connection.UserLoggedIn.getUser_ID());
+            exit.add(order);
+        }
+
+        return exit;
+    }
+
 }

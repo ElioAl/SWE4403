@@ -58,7 +58,9 @@ public interface Database {
 
     void placeOrder(int order_ID, ArrayList<Product> order);
 
-    boolean cancelOrder(int order_ID) throws UnauthorizedAccessException;
+    void cancelOrder(int order_ID) throws UnauthorizedAccessException, StatusChangingException;
 
     void getOrderStatus(int order_ID);
+
+    ArrayList<Order> getUserOrder();
 }

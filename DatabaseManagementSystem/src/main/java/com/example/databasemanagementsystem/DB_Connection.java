@@ -87,10 +87,10 @@ public class DB_Connection {
         UserLoggedIn = user_DB.login(username, password);
     }
 
-    public static void main(String[] args){
-        //Connection dbConnection = Connect();
-        System.out.println("Connected");
-        DBAccess dbAccess = new DBAccess();
+//    public static void main(String[] args){
+//        //Connection dbConnection = Connect();
+//        System.out.println("Connected");
+//        DBAccess dbAccess = new DBAccess();
 //        dbAccess.add_user("TEst", "Testing");
 //        ArrayList<String> res = dbAccess.get_User(2);
 //        for (String re : res) {
@@ -101,5 +101,5 @@ public class DB_Connection {
 //        for (String re : resu) {
 //            System.out.println(re);
 //        }
-    }
+//    }
 }

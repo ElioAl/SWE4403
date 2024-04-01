@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
@@ -26,14 +27,19 @@ public class CancelOrderCommand extends Command{
     }
 
     @Override
-    public void execute() {
-        Command.setCurrentOrder(new Order());
-        String url = "http://localhost:8081/cancelOrder?orderId={orderId}";
+    public void execute() throws StatusChangingException {
+        try {
+            Command.setCurrentOrder(new Order());
+            String url = "http://localhost:8081/cancelOrder?orderId={orderId}";
 
-        Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("orderId", orderId);
+            Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("orderId", orderId);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, uriVariables);
+            ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, uriVariables);
+        }
+        catch(HttpServerErrorException.InternalServerError e){
+            throw new StatusChangingException("Unable to cancel order");
+        }
 
     }
 
@@ -42,7 +48,7 @@ public class CancelOrderCommand extends Command{
     }
 
     @Override
-    public void undo() {
+    public void undo() throws StatusChangingException, InsufficientFundsException {
         Command placeOrderCommand = new PlaceOrderCommand();
         placeOrderCommand.execute();
     }

@@ -1,10 +1,7 @@
 package unb.microservices.PCS;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.security.MessageDigest;
@@ -13,6 +10,8 @@ import java.util.ArrayList;
 
 @RestController
 public class PCSController {
+
+    DBConnection conn = DBConnection.getDBInstance();
 
     @GetMapping("/")
     public String Hello() {
@@ -94,5 +93,20 @@ public class PCSController {
         }
 
 
+    }
+
+    @PostMapping("/addProduct")
+    public void addProduct(@RequestParam("name") String name, @RequestParam("cost") double cost, @RequestParam("quantity") int quantity, @RequestParam("category") String category){
+        conn.createProduct(name, cost, quantity, category);
+    }
+
+    @PostMapping("/deleteProduct")
+    public void deleteProduct(@RequestParam("product_ID") int product_ID){
+        conn.deleteProduct(product_ID);
+    }
+
+    @PostMapping("updateProduct")
+    public void updateProduct(@RequestBody Product toUpdate){
+        conn.updateProduct(toUpdate);
     }
 }

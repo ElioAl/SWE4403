@@ -30,7 +30,7 @@ public class OrderCommandExecutor {
         order = orderIn;
     }
 
-    public void addToOrder(Product item, int id){
+    public void addToOrder(Product item, int id) throws StatusChangingException, InsufficientFundsException {
         if(order == null){
             createOrder(id);
             log = new ArrayList<String>();
@@ -44,7 +44,7 @@ public class OrderCommandExecutor {
         queue.add(addToOrder);
     }
 
-    public void removeFromOrder(Product item){
+    public void removeFromOrder(Product item) throws StatusChangingException, InsufficientFundsException {
         Command removeFromOrder = new RemoveFromOrderCommand();
         removeFromOrder.setItem(item);
         removeFromOrder.execute();
@@ -52,7 +52,7 @@ public class OrderCommandExecutor {
         queue.add(removeFromOrder);
     }
 
-    public void placeOrder(int cardNumber, double amountInCard){
+    public void placeOrder(int cardNumber, double amountInCard) throws InsufficientFundsException {
         PlaceOrderCommand placeOrder = new PlaceOrderCommand();
         placeOrder.setAmountInCard(amountInCard);
         placeOrder.setCardNumber(cardNumber);
@@ -62,7 +62,11 @@ public class OrderCommandExecutor {
         queue.add(placeOrder);
     }
 
-    public void cancelOrder(int orderId){
+    public void cancelOrder(int orderId) throws StatusChangingException {
+        if(log == null){
+            log = new ArrayList<String>();
+            queue = new ArrayList<Command>();
+        }
         CancelOrderCommand cancelOrder = new CancelOrderCommand();
         cancelOrder.setOrderId(orderId);
 
@@ -71,7 +75,7 @@ public class OrderCommandExecutor {
         queue.add(cancelOrder);
     }
 
-    public void undo(){
+    public void undo() throws StatusChangingException, InsufficientFundsException {
         int len = queue.size();
         log.add("Undid last action");
         queue.get(len-1).undo();

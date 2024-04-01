@@ -14,10 +14,10 @@ public class product_DB {
         CallableStatement dbStatement = null;
 
         try {
-            dbStatement = dbConnection.prepareCall("{CALL add_product(?,?,?,?)}");
+            dbStatement = dbConnection.prepareCall("{CALL addProduct(?,?,?,?)}");
             dbStatement.setString("product_name", product_name);
             dbStatement.setDouble("product_price", product_price);
-            dbStatement.setInt("product_quanity", quantity);
+            dbStatement.setInt("product_quantity", quantity);
             dbStatement.setString("product_category", category);
             dbStatement.executeQuery();
         } catch (SQLException e) {
@@ -128,7 +128,7 @@ public class product_DB {
         ResultSet dbResultSet = null;
         try {
             dbStatement = dbConnection.prepareCall("{CALL deleteProduct(?)}");
-            dbStatement.setInt("product_ID", product_ID);
+            dbStatement.setInt("ID", product_ID);
             dbResultSet = dbStatement.executeQuery();
             if (dbResultSet.next()) {
                 int id = dbResultSet.getInt("Product_ID");

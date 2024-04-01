@@ -1,5 +1,6 @@
 package com.example.databasemanagementsystem;
 
+import SharedDataTypes.Order;
 import SharedDataTypes.Product;
 import SharedDataTypes.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,18 @@ public class MethodSender {
         Map<String, Object> params = new HashMap<>();
         params.put("status", status);
         ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
+    }
+
+    public void sendUserOrders(ArrayList<Order> orders){
+        String url = "http://localhost:8086/sendUserOrders";
+
+        OrderListWrapper wrapper = new OrderListWrapper(orders);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<OrderListWrapper> entity = new HttpEntity<>(wrapper);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
 }

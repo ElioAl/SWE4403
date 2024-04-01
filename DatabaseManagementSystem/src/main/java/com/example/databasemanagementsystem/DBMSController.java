@@ -53,9 +53,7 @@ public class DBMSController {
                             @RequestParam("cost") double cost,
                             @RequestParam("quantity") int quantity,
                             @RequestParam("type") String type) throws UnauthorizedAccessException {
-
-        System.out.println("Yabadabadoo " + name + " " + cost + " " + quantity + " " + type);
-        //db.add_product(name, cost, quantity, type);
+        db.add_product(name, cost, quantity, type);
     }
 
 
@@ -70,14 +68,12 @@ public class DBMSController {
     @PostMapping("/update_product")
     public void update_product(@RequestBody ProductPacket toUpdate) throws UnauthorizedAccessException {
         Product result = deSerialize(toUpdate);
-        //db.update_product(result);
-        System.out.println(result.getName());
+        db.update_product(result);
     }
 
     @GetMapping("delete_product")
     public ProductPacket delete_product(@RequestParam("product_ID") int product_ID) throws UnauthorizedAccessException {
-        //Product toReturn = db.delete_product(product_ID);
-        Product toReturn = new Product(product_ID, "Cheese", 1000000, 69, "dairy");
+        Product toReturn = db.delete_product(product_ID);
         return serialize(toReturn);
     }
 
@@ -98,13 +94,18 @@ public class DBMSController {
     }
 
     @PostMapping("/cancelOrder")
-    public void cancelOrder(@RequestParam("order_ID") int order_ID) throws UnauthorizedAccessException {
+    public void cancelOrder(@RequestParam("orderId") int order_ID) throws UnauthorizedAccessException, StatusChangingException {
         db.cancelOrder(order_ID);
     }
 
     @PostMapping("/getOrderStatus")
     public void getOrderStatus(@RequestParam("order_ID") int order_ID){
         db.getOrderStatus(order_ID);
+    }
+
+    @PostMapping("/getUserOrders")
+    public void getUserOrders(){
+        send.sendUserOrders(db.getUserOrder());
     }
 
     private ProductPacket serialize (Product toSerialize) {

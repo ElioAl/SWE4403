@@ -26,12 +26,12 @@ public class DBConnection {
     }
 
 
-    public void createProduct(Product createdProduct, String type) {
+    public void createProduct(String name, double cost, int quantity, String type) {
         String url = "http://localhost:8081/add_product?name={name}&cost={cost}&quantity={quantity}&type={type}";
         Map<String, Object> params = new HashMap<>();
-        params.put("name", createdProduct.getName());
-        params.put("cost", createdProduct.getCost());
-        params.put("quantity", createdProduct.getQuantity());
+        params.put("name", name);
+        params.put("cost", cost);
+        params.put("quantity", quantity);
         params.put("type", type);
         ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, params);
         System.out.println("Status Code: " + response.getStatusCode());
@@ -55,10 +55,10 @@ public class DBConnection {
         ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
     }
 
-    public Product deleteProduct(int product_ID) {
+    public void deleteProduct(int product_ID) {
         String url = "http://localhost:8081/delete_product?product_ID={product_ID}";
         ProductPacket productPacket = restTemplate.getForObject(url, ProductPacket.class, product_ID);
-        return deSerialize(productPacket);
+        //deSerialize(productPacket);
     }
 
     public void getCategory(String category) {

@@ -17,7 +17,7 @@ public class PaymentController {
     private RestTemplate restTemplate;
 
     @PostMapping("/pay")
-    public void pay(@RequestParam("userId") int userId, @RequestParam("cardNumber") int cardNumber, @RequestParam("amountInCard") double amountInCard, @RequestBody ListWrapper items){
+    public void pay(@RequestParam("userId") int userId, @RequestParam("cardNumber") int cardNumber, @RequestParam("amountInCard") double amountInCard, @RequestBody ListWrapper items) throws InsufficientFundsException {
         System.out.println("RECEIVEDDDDDDDDDDDDDDDD");
         Payment tempPay = new Payment(userId, items.getObject(), cardNumber, amountInCard);
         tempPay.proccess();

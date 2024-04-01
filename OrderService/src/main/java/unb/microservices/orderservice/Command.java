@@ -15,6 +15,6 @@ public abstract class Command {
 
     public abstract void setItem(Product item);
 
-    public abstract void execute();
-    public abstract void undo();
+    public abstract void execute() throws StatusChangingException, InsufficientFundsException;
+    public abstract void undo() throws StatusChangingException, InsufficientFundsException;
 }

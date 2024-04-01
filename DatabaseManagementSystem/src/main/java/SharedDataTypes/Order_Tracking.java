@@ -1,11 +1,12 @@
 package SharedDataTypes;
 
 public enum Order_Tracking {
-    NotPlated(0),
+    NotPlaced(0),
     Processing(1),
     Shipping(2),
     OutForDelivery(3),
-    Delivered(4);
+    Delivered(4),
+    Cancelled(5);
 
     private final int value;
 

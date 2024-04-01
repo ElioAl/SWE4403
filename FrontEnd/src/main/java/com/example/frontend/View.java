@@ -1,14 +1,15 @@
 package com.example.frontend;
 
+import java.util.Properties;
 import java.util.Scanner;
 
 public class View {
 
     MethodCaller caller = new MethodCaller();
+    Scanner scan = new Scanner(System.in);
     static int order_ID;
     public void CustomerView(){
 
-        Scanner scan = new Scanner(System.in);
         while(true){
             System.out.println("Home\nEnter One of the Following Options" +
                     "\n---------------------------------------------" +
@@ -27,28 +28,29 @@ public class View {
 
                 case "order":
                     //get all orders for a user first
-                    System.out.print("Enter your order ID: ");
-                    order_ID = scan.nextInt();
-                    scan.nextLine();
-                    System.out.println("order ID: (I'm in view line 34) " + order_ID);
-                    caller.getOrderStatus(order_ID);
+                    caller.getUserOrders();
                     break;
 
                 case "categories":
                     String cat = "";
-                    while(!(cat.equals("menu"))){
+                    while(true){
                         System.out.println("-------------------------");
                         System.out.println("|\tDairy\t|\tMeat\t|");
                         System.out.println("-------------------------");
                         System.out.println("Select a Category to View The Products or Enter Return to Return to Menu");
                         cat = scan.nextLine().toLowerCase();
+                        System.out.println("Scanned");
                         if(cat.equals("dairy") || cat.equals("meat")){
+                            System.out.println("Getting list");
                             caller.getList(cat);
-                        } else {
+
+                        } else if(cat.equals("menu")){
+                            CustomerView();
+                        }
+                        else {
                             System.out.println("Invalid category");
                         }
                     }
-                    break;
 
                 case "profile":
                     Profile profile = new Profile();
@@ -71,9 +73,35 @@ public class View {
     }
 
     public void RetailerView(){
-        System.out.println("Home\n - Enter\nOrder - to view an order status" +
-                "\nCategories - to view all categories" +
-                "\nProfile - to view your profile" +
-                "\nExit - To Exit the application");
+        while(true) {
+            System.out.println("Home\n - Enter" +
+                    "\nCategories - to view all categories" +
+                    "\nProfile - to view your profile" +
+                    "\nLogout  - to Logout of the application" +
+                    "\nExit - To Exit the application");
+            String input = scan.nextLine().toLowerCase();
+            switch(input){
+                case "categories":
+                    Categories cat = new Categories();
+                    cat.getEmployeeList();
+                    break;
+
+                case "profile":
+                    Profile prof = new Profile();
+                    prof.getProfile(FrontEndApplication.loggedIn);
+                    break;
+
+                case "logout":
+                    Login log = new Login();
+                    log.login();
+                    break;
+
+                case "exit":
+                    System.exit(1);
+                    break;
+                default:
+                    System.out.println("Invalid Command");
+            }
+        }
     }
 }

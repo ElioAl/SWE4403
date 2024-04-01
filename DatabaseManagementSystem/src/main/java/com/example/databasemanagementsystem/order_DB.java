@@ -8,6 +8,9 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class order_DB {
 
@@ -19,7 +22,7 @@ public class order_DB {
 
         try{
             dbStatement = dbConnection.prepareCall("{CALL getUserOrder(?)}");
-            dbStatement.setInt("user_ID", order_ID);
+            dbStatement.setInt("order_ID", order_ID);
             dbResultSet = dbStatement.executeQuery();
             if(dbResultSet.next()) {
                 result = dbResultSet.getInt("user_ID");
@@ -106,5 +109,52 @@ public class order_DB {
         finally{
             DB_Connection.Closing(dbStatement, dbConnection);
         }
+    }
+
+    public static void cancelOrder(int order_ID){
+        Connection dbConection = DB_Connection.Connect();
+        CallableStatement dbStatement = null;
+
+        try{
+            dbStatement = dbConection.prepareCall("{CALL cancelOrder(?,?)}");
+            dbStatement.setInt("order_ID", order_ID);
+            dbStatement.setInt("user_ID", DB_Connection.UserLoggedIn.getUser_ID());
+            dbStatement.executeQuery();
+        }
+        catch (SQLException e){
+            DB_Connection.getSQLException(e);
+        } finally {
+            DB_Connection.Closing(dbStatement, dbConection);
+        }
+    }
+
+    public static ArrayList<Map<String, Object>> getUserOrders(){
+        Connection dbConection = DB_Connection.Connect();
+        CallableStatement dbStatement = null;
+        ArrayList<Map<String, Object>> result = null;
+        ResultSet dbResultSet = null;
+
+        try{
+            dbStatement = dbConection.prepareCall("{CALL getUserOrders(?)}");
+            dbStatement.setInt("ID", DB_Connection.UserLoggedIn.getUser_ID());
+            dbResultSet = dbStatement.executeQuery();
+            result = new ArrayList<>();
+            while(dbResultSet.next()){
+                Map<String, Object> list = new HashMap<>();
+                int ID = dbResultSet.getInt("order_ID");
+                String name = dbResultSet.getString("product_name");
+                int user_ID = dbResultSet.getInt("user_ID");
+                list.put("ID", ID);
+                list.put("name", name);
+                list.put("user_ID", user_ID);
+                result.add(list);
+            }
+        }
+        catch (SQLException e){
+            DB_Connection.getSQLException(e);
+        } finally {
+            DB_Connection.Closing(dbStatement, dbConection);
+        }
+        return result;
     }
 }

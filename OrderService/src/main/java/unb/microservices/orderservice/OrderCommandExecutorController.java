@@ -11,24 +11,24 @@ public class OrderCommandExecutorController {
     private RestTemplate restTemplate;
 
     @PostMapping("/addToOrder")
-    public void add(@RequestParam("userId") int userId, @RequestBody Product item){
+    public void add(@RequestParam("userId") int userId, @RequestBody Product item) throws StatusChangingException, InsufficientFundsException {
         System.out.println("added to order");
         executor.addToOrder(item, userId);
     }
 
     @PostMapping("/removeFromOrder")
-    public void remove(@RequestBody Product item){
+    public void remove(@RequestBody Product item) throws StatusChangingException, InsufficientFundsException {
         System.out.println("removed from order");
         executor.removeFromOrder(item);
     }
 
     @PostMapping("/placeOrder")
-    public void place(@RequestParam("cardNumber") int cardNumber, @RequestParam("amountInCard") double amountInCard){
+    public void place(@RequestParam("cardNumber") int cardNumber, @RequestParam("amountInCard") double amountInCard) throws InsufficientFundsException {
         System.out.println("placed order");
         executor.placeOrder(cardNumber, amountInCard);
     }
     @PostMapping("/cancelOrder")
-    public void cancel(@RequestParam("orderId") int orderId){
+    public void cancel(@RequestParam("orderId") int orderId) throws StatusChangingException {
         System.out.println("cancelled order");
         executor.cancelOrder(orderId);
     }
@@ -46,7 +46,7 @@ public class OrderCommandExecutorController {
     }
 
     @PostMapping("/undo")
-    public void undo(){
+    public void undo() throws StatusChangingException, InsufficientFundsException {
         System.out.println("undo");
         executor.undo();
     }

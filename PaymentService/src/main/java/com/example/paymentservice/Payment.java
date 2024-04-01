@@ -21,7 +21,7 @@ public class Payment {
         this.state = state;
     }
 
-    public void proccess(){
+    public void proccess() throws InsufficientFundsException {
         state.proccess(this);
     }
 

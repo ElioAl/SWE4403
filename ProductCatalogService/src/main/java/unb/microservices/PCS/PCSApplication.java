@@ -28,12 +28,12 @@ public class PCSApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("here");
-		DBConnection db = DBConnection.getDBInstance();
-		ProductFactory PF = new MeatFactory();
-		Product p = PF.createProduct(1, "Tomahawk steak", 3, 6, "meat");
-		Product pp = db.deleteProduct(69);
-		System.out.println(pp.getName());
+//		System.out.println("here");
+//		DBConnection db = DBConnection.getDBInstance();
+//		ProductFactory PF = new MeatFactory();
+//		Product p = PF.createProduct(1, "Tomahawk steak", 3, 6, "meat");
+//		Product pp = db.deleteProduct(69);
+//		System.out.println(pp.getName());
 
 	}
 

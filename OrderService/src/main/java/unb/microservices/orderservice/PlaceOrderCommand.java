@@ -25,27 +25,32 @@ public class PlaceOrderCommand extends Command{
     }
 
     @Override
-    public void execute() {
-        String url = "http://localhost:8085/pay?userId={userId}&cardNumber={cardNumber}&amountInCard={amountInCard}";
-        // populate productListWrapper with your products
-        ListWrapper wrapper = new ListWrapper(Command.getOrder().getItems());
+    public void execute() throws InsufficientFundsException {
+        try {
+            String url = "http://localhost:8085/pay?userId={userId}&cardNumber={cardNumber}&amountInCard={amountInCard}";
+            // populate productListWrapper with your products
+            ListWrapper wrapper = new ListWrapper(Command.getOrder().getItems());
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<ListWrapper> entity = new HttpEntity<>(wrapper);
+            HttpEntity<ListWrapper> entity = new HttpEntity<>(wrapper);
 
 
-        Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userId", Command.getOrder().getUserId());
-        uriVariables.put("cardNumber", cardNumber);
-        uriVariables.put("amountInCard", amountInCard);
+            Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("userId", Command.getOrder().getUserId());
+            uriVariables.put("cardNumber", cardNumber);
+            uriVariables.put("amountInCard", amountInCard);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+            ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
 
-        Command.setCurrentOrder(null);
-        OrderCommandExecutor OCE = new OrderCommandExecutor();
-        OCE.setOrder(null);
+            Command.setCurrentOrder(null);
+            OrderCommandExecutor OCE = new OrderCommandExecutor();
+            OCE.setOrder(null);
+        }
+        catch(Exception e){
+            throw new InsufficientFundsException("Payment Failed");
+        }
     }
 
     public void setCardNumber(int cardNumber){
@@ -59,7 +64,7 @@ public class PlaceOrderCommand extends Command{
 
 
     @Override
-    public void undo() {
+    public void undo() throws InsufficientFundsException, StatusChangingException {
         Command cancelCommand = new CancelOrderCommand();
         cancelCommand.execute();
     }
