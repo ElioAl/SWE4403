@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,8 +40,12 @@ public class PlaceOrderCommand extends Command{
         uriVariables.put("userId", Command.getOrder().getUserId());
         uriVariables.put("cardNumber", cardNumber);
         uriVariables.put("amountInCard", amountInCard);
-        
+
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class, uriVariables);
+
+        Command.setCurrentOrder(null);
+        OrderCommandExecutor OCE = new OrderCommandExecutor();
+        OCE.setOrder(null);
     }
 
     public void setCardNumber(int cardNumber){
