@@ -12,7 +12,7 @@ public class Login {
     static String password = "";
     public void login(){
 
-        System.out.println("-----Welcome to ...-----");
+        System.out.println("-----Welcome to WebBazaar-----");
         Scanner scan = new Scanner(System.in);
         boolean loggedIn = false;
         User userIn = null;
