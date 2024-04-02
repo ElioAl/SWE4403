@@ -3,6 +3,7 @@ package com.example.frontend;
 import com.example.frontend.SharedDataTypes.CustomerService;
 import com.example.frontend.SharedDataTypes.ListWrapper;
 import com.example.frontend.SharedDataTypes.Product;
+import com.example.frontend.SharedDataTypes.ProductPacket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -115,7 +116,7 @@ public class MethodCaller {
     }
 
     public void getList(String category){
-        System.out.println("Sending Rerquest");
+        System.out.println("Sending Request");
         String url = "http://localhost:8080/getCategory?category={category}";
 
         Map<String, Object> params = new HashMap<>();
@@ -160,9 +161,17 @@ public class MethodCaller {
 
     public void updateProduct(Product toUpdate){
         String url = "http://localhost:8080/updateProduct";
-
-        HttpEntity<Product> entity = new HttpEntity<>(toUpdate);
+        ProductPacket toSend = serialize(toUpdate);
+        HttpEntity<ProductPacket> entity = new HttpEntity<>(toSend);
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+    }
+
+    private ProductPacket serialize (Product toSerialize) {
+        return new ProductPacket(toSerialize.getProduct_ID(), toSerialize.getName(), toSerialize.getCost(), toSerialize.getQuantity(), toSerialize.getCategory());
+    }
+
+    private Product deSerialize(ProductPacket toDeserialize) {
+        return new Product(toDeserialize.product_ID, toDeserialize.name, toDeserialize.cost, toDeserialize.quantity, toDeserialize.type);
     }
 }

@@ -1,5 +1,6 @@
 package unb.microservices.PCS;
 
+import SharedDataTypes.ProductPacket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -106,7 +107,7 @@ public class PCSController {
     }
 
     @PostMapping("updateProduct")
-    public void updateProduct(@RequestBody Product toUpdate){
+    public void updateProduct(@RequestBody ProductPacket toUpdate){
         conn.updateProduct(toUpdate);
     }
 }

@@ -37,13 +37,13 @@ public class product_DB {
 
         try{
             System.out.println("Retrieving Product");
-            dbStatement = dbConnection.prepareCall("{CALL get_product(?)}");
-            dbStatement.setInt("product_ID", product_ID);
+            dbStatement = dbConnection.prepareCall("{CALL getProduct(?)}");
+            dbStatement.setInt("ID", product_ID);
             dbResultSet = dbStatement.executeQuery();
             while(dbResultSet.next()){
                 String name = dbResultSet.getString("product_name");
                 double cost = dbResultSet.getDouble("product_cost");
-                int quantity = dbResultSet.getInt("product_quanity");
+                int quantity = dbResultSet.getInt("product_quantity");
                 String category = dbResultSet.getString("product_category");
                 result = new Product(product_ID, name, cost, quantity, category);
             }
@@ -117,7 +117,7 @@ public class product_DB {
         try {
             System.out.println("Updating Product");
             dbStatement = dbConnection.prepareCall("{CALL updateProduct(?,?,?,?,?)}");
-            dbStatement.setInt("product_ID", toUpdate.getProduct_ID());
+            dbStatement.setInt("ID", toUpdate.getProduct_ID());
             dbStatement.setString("product_name", toUpdate.getName());
             dbStatement.setDouble("product_cost", toUpdate.getCost());
             dbStatement.setInt("product_quantity", toUpdate.getQuantity());

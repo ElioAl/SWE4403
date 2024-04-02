@@ -48,10 +48,9 @@ public class DBConnection {
     }
 
 
-    public void updateProduct(Product toUpdate) {
+    public void updateProduct(ProductPacket toUpdate) {
         String url = "http://localhost:8081/update_product";
-        ProductPacket result = serialize(toUpdate);
-        HttpEntity<ProductPacket> request = new HttpEntity<>(result);
+        HttpEntity<ProductPacket> request = new HttpEntity<>(toUpdate);
         ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
     }
 

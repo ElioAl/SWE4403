@@ -61,6 +61,7 @@ public class DBAccess implements Database{
     public void update_product(Product toUpdate) throws UnauthorizedAccessException {
         if(DB_Connection.getAuthority("retailer") == 200) {
             Product test = product_DB.get_product(toUpdate.getProduct_ID());
+            System.out.println(test);
             if(toUpdate.getName().equals("X")){
                 toUpdate.setName(test.getName());
             }

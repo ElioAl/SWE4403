@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d950def-9c62-49f0-b14a-303033f01096" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/SharedDataTypes/ProductPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/DBAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/product_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseManagementSystem/src/main/java/com/example/databasemanagementsystem/product_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/com/example/frontend/MethodCaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/PCSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductCatalogService/src/main/java/unb/microservices/PCS/PCSController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +113,7 @@
       <workItem from="1711927440847" duration="5281000" />
       <workItem from="1711985804730" duration="7724000" />
       <workItem from="1712064120071" duration="1019000" />
+      <workItem from="1712079508202" duration="1618000" />
     </task>
     <servers />
   </component>
